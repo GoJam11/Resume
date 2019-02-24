@@ -28,7 +28,7 @@
     </module>
     <module title="项目经验">
       <b>华工二手市场小程序</b>
-      哒哒哒
+      负责二手市场小程序的前端开发，使用的组件在组件库的基础上二次开发，感受了小程序的布局、特性
     </module>
     <module title="技能">
       <div>
@@ -42,7 +42,7 @@
       <i>能够简单地了解和运用以上技能</i>
     </module>
 
-    <module title="校内工作"></module>
+    <!--<module title="校内工作"></module>-->
 
     <div style="text-align:center;margin-top:10px">
       Rendered by
