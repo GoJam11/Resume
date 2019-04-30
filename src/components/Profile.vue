@@ -11,7 +11,7 @@
       <div>电子邮件：{{mail}}</div>
       <div>求职意愿：{{intention}}</div>
     </div>
-    <div class="avatar">
+    <div class="avatar" v-if="avatar">
         
         <p>注：不需要照片</p>
     </div>
@@ -23,12 +23,13 @@ export default {
   name: "profile",
   props: {
     name: String,
-    age: Number,
+    age: String,
     sex: String,
     grade: String,
     tel: String,
     mail: String,
-    intention: String
+    intention: String,
+    avatar:Boolean
   }
 };
 </script>

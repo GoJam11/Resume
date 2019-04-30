@@ -18,14 +18,6 @@ export default {
         height:String
     },
     computed:{
-        boxWidth:function(){
-            console.log("c")
-            if(this.width.match("px")||this.width.match("em")){
-                return this.width;
-            }else{
-                return this.width+"px";
-            }
-        }
     },
     data:function(){
         return {

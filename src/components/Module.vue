@@ -41,5 +41,6 @@ export default {
   height: 5px;
   background-color: rgb(76, 141, 226);
   width: 100%;
+  margin-top: -5px
 }
 </style>
