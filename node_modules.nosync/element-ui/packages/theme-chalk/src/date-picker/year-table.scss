@@ -36,11 +36,11 @@
       height: 32px;
       display: block;
       line-height: 32px;
-      color: $--datepicker-color;
+      color: $--datepicker-font-color;
       margin: 0 auto;
 
       &:hover {
-        color: $--datepicker-text-hover-color;
+        color: $--datepicker-hover-font-color;
       }
     }
 

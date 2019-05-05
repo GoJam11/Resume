@@ -68,6 +68,7 @@
   - [International users](http://element.eleme.io/#/en-US)
   - [Chinese users](http://element-cn.eleme.io/#/zh-CN)
   - [Spanish users](http://element.eleme.io/#/es)
+  - [French users](http://element.eleme.io/#/fr-FR)
 - [awesome-element](https://github.com/ElementUI/awesome-element)
 - [FAQ](./FAQ.md)
 - [Customize theme](http://element.eleme.io/#/en-US/component/custom-theme)
@@ -114,7 +115,7 @@ Modern browsers and Internet Explorer 10+.
 ## Development
 Skip this part if you just want to use Element.
 
-For those who are interested in contributing to Element, please refer to our contributing guide ([中文](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.zh-CN.md) | [English](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.en-US.md) | [Español](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.es.md)) to see how to run this project.
+For those who are interested in contributing to Element, please refer to our contributing guide ([中文](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.zh-CN.md) | [English](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.en-US.md) | [Español](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.es.md) | [Français](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.fr-FR.md)) to see how to run this project.
 
 ## Changelog
 Detailed changes for each release are documented in the [release notes](https://github.com/ElemeFE/element/releases).
@@ -123,7 +124,7 @@ Detailed changes for each release are documented in the [release notes](https://
 We have collected some [frequently asked questions](https://github.com/ElemeFE/element/blob/master/FAQ.md). Before reporting an issue, please search if the FAQ has the answer to your problem.
 
 ## Contribution
-Please make sure to read the contributing guide ([中文](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.zh-CN.md) | [English](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.en-US.md) | [Español](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.es.md)) before making a pull request.
+Please make sure to read the contributing guide ([中文](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.zh-CN.md) | [English](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.en-US.md) | [Español](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.es.md) | [Français](https://github.com/ElemeFE/element/blob/master/.github/CONTRIBUTING.fr-FR.md)) before making a pull request.
 
 [![Let's fund issues in this repository](https://issuehunt.io/static/embed/issuehunt-button-v1.svg)](https://issuehunt.io/repos/67274736)
 
@@ -232,7 +233,7 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 
 Scan the QR code using [Dingtalk App](https://www.dingtalk.com/) to join in discusion group :
 
-<img alt="Join Discusion Group" src="https://user-images.githubusercontent.com/17680888/50588415-d9aaca00-0ebc-11e9-92e2-f71960346f85.png" width="300">
+<img alt="Join Discusion Group" src="https://user-images.githubusercontent.com/17680888/54505885-e3e54c00-4974-11e9-94b9-4c13644fcd98.png" width="300">
 
 
 ## LICENSE

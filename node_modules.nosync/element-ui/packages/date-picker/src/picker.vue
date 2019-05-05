@@ -2,7 +2,7 @@
   <el-input
     class="el-date-editor"
     :class="'el-date-editor--' + type"
-    :readonly="!editable || readonly || type === 'dates'"
+    :readonly="!editable || readonly || type === 'dates' || type === 'week'"
     :disabled="pickerDisabled"
     :size="pickerSize"
     :name="name"
@@ -86,7 +86,7 @@
 <script>
 import Vue from 'vue';
 import Clickoutside from 'element-ui/src/utils/clickoutside';
-import { formatDate, parseDate, isDateObject, getWeekNumber } from './util';
+import { formatDate, parseDate, isDateObject, getWeekNumber } from 'element-ui/src/utils/date-util';
 import Popper from 'element-ui/src/utils/vue-popper';
 import Emitter from 'element-ui/src/mixins/emitter';
 import ElInput from 'element-ui/packages/input';
@@ -114,6 +114,7 @@ const DEFAULT_FORMATS = {
   week: 'yyyywWW',
   timerange: 'HH:mm:ss',
   daterange: 'yyyy-MM-dd',
+  monthrange: 'yyyy-MM',
   datetimerange: 'yyyy-MM-dd HH:mm:ss',
   year: 'yyyy'
 };
@@ -126,6 +127,7 @@ const HAVE_TRIGGER_TYPES = [
   'month',
   'year',
   'daterange',
+  'monthrange',
   'timerange',
   'datetimerange',
   'dates'
@@ -188,17 +190,9 @@ const TYPE_VALUE_RESOLVER_MAP = {
         : date.replace(/W/, week);
       return date;
     },
-    parser(text) {
-      const array = (text || '').split('w');
-      if (array.length === 2) {
-        const year = Number(array[0]);
-        const month = Number(array[1]);
-
-        if (!isNaN(year) && !isNaN(month) && month < 54) {
-          return text;
-        }
-      }
-      return null;
+    parser(text, format) {
+      // parse as if a normal date
+      return TYPE_VALUE_RESOLVER_MAP.date.parser(text, format);
     }
   },
   date: {
@@ -210,6 +204,10 @@ const TYPE_VALUE_RESOLVER_MAP = {
     parser: DATE_PARSER
   },
   daterange: {
+    formatter: RANGE_FORMATTER,
+    parser: RANGE_PARSER
+  },
+  monthrange: {
     formatter: RANGE_FORMATTER,
     parser: RANGE_PARSER
   },
