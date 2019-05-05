@@ -1,6 +1,6 @@
 # resume
 
-这是我的[简历](https://agitated-hawking-50ea80.netlify.com/)
+这是我的[简历](https://gojam-resume.netlify.com)
 
 
 
