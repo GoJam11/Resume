@@ -1,8 +1,16 @@
 <template>
   <div>
-       <p class="title" @click="next" :class="{show:isP}">你做好准备了吗</p>
-    <card title="标题在此"  width="calc(20% + 20px)" content="content"><p>哈哈</p></card>
-        <!--
+    <card
+      title="个人简历"
+      width="calc(20% + 20px)"
+      style="margin:15px 10px"
+      content="我的第一份个人简历，排版已经有些问题了"
+      v-if="showTip"
+      class="hide"
+    >
+      <p>Made in early 2019</p>
+    </card>
+
     <profile
       name="孙果"
       sex="男"
@@ -11,16 +19,15 @@
       tel="13084326595"
       mail="ebluewebmail@gmail.com"
       intention="前端实习"
-      :avatar="avatar"
     ></profile>
 
     <module title="教育背景">
       <div class="flex">
         <div>{{edu.date}}</div>
         <div>{{edu.school}}</div>
-  <div>{{edu.major}}</div>-->
-  <!--<div>{{grade}}</div>-->
-  <!-- </div>
+        <div>{{edu.major}}</div>
+        <div>{{grade}}</div>
+      </div>
       <div class="flex">
         <div>2018.9 - 至今</div>
         <div>华南理工大学</div>
@@ -48,24 +55,54 @@
         <b>Vue.JS</b>
       </div>
       <i>能够简单地了解和运用以上技能</i>
-  </module>-->
+    </module>
 
-  <!--<module title="校内工作"></module>-->
+    <module title="校内工作"></module>
 
-  <!--<div style="text-align:center;margin-top:10px">
+    <div style="text-align:center;margin-top:10px">
       Rendered by
-      <img src="./assets/logo.png" alt height="16em">
-  </div>-->
-  <!--<div style="display:flex;justify-content:center">
-      <card  style="">
-        
-      </card>
-  </div>-->
+      <img src="../../assets/logo.png" alt height="16em">
+    </div>
   </div>
-
 </template>
 <script>
-export default {};
+import Module from "./Module";
+import Profile from "./Profile";
+import Card from "./Card";
+import { setTimeout } from "timers";
+
+export default {
+  components: {
+    Module,
+    Profile,
+    Card
+  },
+  data: () => {
+    return {
+      edu: { date: "", school: "", major: "" },
+      grade: "grade",
+      showTip: true
+    };
+  },
+  created() {
+    let that = this;
+    setTimeout(() => {
+      that.showTip = false;
+    }, 5000);
+  }
+};
 </script>
 <style scoped>
+.hide {
+  animation-name: hide;
+  animation-duration: 5s;
+}
+@keyframes hide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 </style>

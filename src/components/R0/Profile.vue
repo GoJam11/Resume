@@ -57,7 +57,7 @@ export default {
 .avatar{
     display: flex;
     align-items: center;
-    background: url("../assets/avatar.jpeg");
+    background: url("../../assets/avatar.jpeg");
     height: 150px;
     background-size: cover
 }
