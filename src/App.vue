@@ -22,16 +22,17 @@ export default {
 <style lang="stylus" scoped>
 .header {
   box-shadow: 0px -8px 9px 0 black;
-  padding: 5px 10px 0 10px;
+  padding: 0px 10px 0px 10px;
   display: flex;
 
   a {
     display: block;
-    font-size: 20px;
-    padding: 3px 10px;
+    font-size: 18px;
+    padding: 8px 10px 8px 10px;
     color: black;
     font-weight: normal;
     text-decoration: none;
+    
   }
   a:hover {
     background :#3685ff29
