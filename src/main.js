@@ -3,7 +3,9 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueI18n from 'vue-i18n'
 //import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
+//import 'element-ui/lib/theme-chalk/index.css';
+import './assets/css/font-awesome.min.css'
+
 import R0 from './components/R0/Resume0.vue'
 import R1 from './components/R1/Resume1.vue'
 import R from './components/Resume.vue'

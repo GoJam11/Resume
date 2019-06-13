@@ -1,109 +1,145 @@
 <template>
   <div class="global" v-on:mousewheel="scroll">
-    <div class="card">
-      <header class="header">
-        <div class="left">
-          {{$t("name")}}
-          <br>
-          <span class="s">{{$t("s")}}</span>
+    <div class="container">
+      <div class="loading" v-if="loading">
+        <div class="circle lg">
+          <div class="circle sm"></div>
         </div>
-        <div class="right">
-          <div class="right-l">
-            <p class="intro">我是一个由衷热爱前端与交互的前端er，梦想是成为一名前端工程师。</p>
-            <p class="intro">目前正在寻找前端工程师实习岗位的工作机会，希望借此为xxxx献上我的一点绵薄之力。</p>
+      </div>
+      <div class="card">
+        <header class="header">
+          <div class="left">
+            <p>{{$t("name")}}</p>
+            <p class="s">{{$t("s")}}</p>
           </div>
-          <div class="right-r">
-            <p class="section">
-              <i class="fa fa-bookmark fa-fw"></i>求职意向
-            </p>
-            <p>{{$t("intention")}}</p>
-            <p class="section">
-              <i class="fa fa-bookmark fa-fw"></i>联系方式
-            </p>
-            <p>
-              <i class="fa fa-envelope fa-fw"></i>邮箱：iloveos@live.com
-            </p>
-            <p>
-              <i class="fa fa-phone fa-fw"></i>电话：18651403158
-            </p>
-            <p>
-              <i class="fa fa-wechat fa-fw"></i> 微信：iloveos
-            </p>
-          </div>
-        </div>
-      </header>
-      <div class="body">
-        <div class="section">
-          <p class="title">
-            <i class="fa fa-bookmark fa-fw"></i>基本信息
-          </p>
-          <p class="detail"></p>
-        </div>
-        <div class="section">
-          <p class="title">
-            <i class="fa fa-bookmark fa-fw"></i>技能
-          </p>
-          <div class="detail">
-            <div class="progress-detail">
-              <p>HTML</p>
-              <div class="progress five"></div>
+          <div class="right">
+            <div class="right-l">
+              <p class="intro">我是一个由衷热爱前端与交互的前端er，梦想是成为一名前端工程师。</p>
+              <p class="intro">目前正在寻找前端工程师实习岗位的工作机会，希望借此为xxxx献上我的一点绵薄之力。</p>
             </div>
-            <div class="progress-detail">
-              <p>CSS</p>
-              <div class="progress seven"></div>
-            </div>
-            <div class="progress-detail">
-              <p>JS</p>
-              <div class="progress six"></div>
-            </div>
-            <div class="progress-detail">
-              <p>Vue.JS</p>
-              <div class="progress six"></div>
+            <div class="right-r">
+              <p class="section">
+                <i class="fa fa-bookmark fa-fw"></i>求职意向
+              </p>
+              <p>{{$t("intention")}}</p>
+              <p class="section">
+                <i class="fa fa-bookmark fa-fw"></i>联系方式
+              </p>
+              <p>
+                <i class="fa fa-envelope fa-fw"></i>邮箱：iloveos@live.com
+              </p>
+              <p>
+                <i class="fa fa-phone fa-fw"></i>电话：18651403158
+              </p>
+              <p>
+                <i class="fa fa-wechat fa-fw"></i> 微信：iloveos
+              </p>
             </div>
           </div>
-          <p style="padding-left:40px;font-style:italic">以下仅供参考</p>
-          <div class="detail">
-            <div class="progress-detail">
-              <p class="long">Cocos Creater</p>
-              <div class="progress three"></div>
-            </div>
-            <div class="progress-detail">
-              <p >小程序</p>
-              <div class="progress five"></div>
-            </div>
-            <div class="progress-detail">
-              <p >PHP</p>
-              <div class="progress three"></div>
+        </header>
+        <div class="body">
+          <div class="section">
+            <p class="title">
+              <i class="fa fa-bookmark fa-fw"></i>基本信息
+            </p>
+            <div class="detail">
+              <p>个人信息：孙果 / 男 / 19岁 / 大二</p>
+              <p>教育经历：华南理工大学 广告学</p>
+              <p>英语水平：CET-6 530</p>
+              <p>
+                博客地址：
+                <a href="https://guohere.com" target="_blank">https://guohere.com</a>
+              </p>
+              <p>
+                Github主页：
+                <a
+                  href="https://github.com/GoJam11"
+                  target="_blank"
+                >https://github.com/GoJam11</a>
+              </p>
             </div>
           </div>
-          <div class="detail"><p class="content" style="margin-top:30px">
-              <ul>
+          <div class="section">
+            <p class="title">
+              <i class="fa fa-bookmark fa-fw"></i>技能
+            </p>
+            <div class="detail">
+              <div class="progress-detail">
+                <p>HTML</p>
+                <div class="progress five"></div>
+              </div>
+              <div class="progress-detail">
+                <p>CSS</p>
+                <div class="progress seven"></div>
+              </div>
+              <div class="progress-detail">
+                <p>JS</p>
+                <div class="progress six"></div>
+              </div>
+              <div class="progress-detail">
+                <p>Vue.JS</p>
+                <div class="progress six"></div>
+              </div>
+            </div>
+            <p style="padding-left:40px;font-style:italic">扩展</p>
+            <div class="detail">
+              <div class="progress-detail">
+                <p class="long">Cocos Creater</p>
+                <div class="progress three"></div>
+              </div>
+              <div class="progress-detail">
+                <p>小程序</p>
+                <div class="progress five"></div>
+              </div>
+              <div class="progress-detail">
+                <p>PHP</p>
+                <div class="progress three"></div>
+              </div>
+            </div>
+            <div class="detail">
+              <div class="content" style="margin-top:30px">
+                <ul>
                   <li>熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具</li>
                   <li>能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态，能够在文档的协助下配置环境</li>
                   <li>熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码</li>
                   <li>有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置与Docker等，会使用Vim等命令行工具</li>
-                  
-              </ul>
-              </p></div>
-        </div>
-        <div class="section">
-          <p class="title">
-            <i class="fa fa-bookmark fa-fw"></i>项目经验
-          </p>
-          <p class="detail"></p>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="section">
+            <p class="title">
+              <i class="fa fa-bookmark fa-fw"></i>项目经验
+            </p>
+            <div class="detail-project">
+              <div class="project">
+                <div class="pj-title">
+                  <h2>华工二手市场小程序</h2>
+                </div>
+                <div class="pj-content">
+                  <p>aa</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-
     <div ref="switch" v-on:mousemove="move" v-on:mouseleave="leave" class="switch">
-      <div style="pointer-events:none">中文</div>
-      <div style="color:white;pointer-events:none">EN</div>
+      <span style="pointer-events:none">中文</span>
+      <span style="color:white;pointer-events:none">EN</span>
     </div>
   </div>
 </template>
 
 <script>
+import { setTimeout } from "timers";
 export default {
+  data: () => {
+    return {
+      loading: true
+    };
+  },
   methods: {
     move(e) {
       e.srcElement.style.background =
@@ -132,13 +168,77 @@ export default {
       console.log(e);
     }
   },
-  created() {}
+  created() {
+    let that = this;
+    setTimeout(() => {
+      that.loading = false;
+    }, 3000);
+  }
 };
 </script>
 
 <style lang="stylus" scoped>
+.container {
+  width: 100%;
+  justify-content: center;
+  background: rgba(128, 128, 128, 0.1);
+
+  &:hover {
+  }
+
+  .loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: loading 3s;
+    animation-fill-mode: forwards;
+
+    .circle {
+      animation: loading 0.5s;
+      animation-iteration-count: 6;
+      animation-fill-mode: forwards;
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+
+      &.lg {
+        animation-name: lg;
+        background: #3a88ff8c;
+        position: absolute;
+        top: calc(50% - 20px);
+        left: calc(50% - 20px);
+      }
+
+      &.sm {
+        animation-name: sm;
+        background: #3685ff;
+      }
+    }
+  }
+
+  @keyframes lg {
+    100% {
+      transform: scale(2);
+    }
+  }
+
+  @keyframes sm {
+    100% {
+      transform: scale(0.3);
+    }
+  }
+
+  @keyframes loading {
+    100% {
+      opacity: 0;
+      display: none;
+    }
+  }
+}
+
 .card {
-  height: 900px;
+  // height: 900px;
   width: 60%;
   border-radius: 6px;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.149);
@@ -147,9 +247,10 @@ export default {
   flex-direction: column;
   overflow: hidden;
   min-width: 960px;
+  background: white;
 
   .header {
-    height: 30%;
+    height: 263px;
     width: 100%;
     background: #007eff;
 
@@ -160,7 +261,11 @@ export default {
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      flex-wrap: wrap;
+
+      // flex-wrap: wrap;
+      p {
+        margin: 0;
+      }
 
       .s {
         font-size: 28px;
@@ -218,27 +323,89 @@ export default {
     .section {
       padding: 0 20px;
       flex-direction: column;
-      margin-bottom 2em
+      margin-bottom: 2em;
+
       .title {
         font-size: 22px;
+        color:#007eff
+      }
+
+      .detail-project {
+        .project {
+          flex-direction: column;
+
+          .pj-title {
+              margin-left:45px
+              position relative
+            &::before {
+              content: '';
+              width: 15px;
+              height:15px;
+              margin-right: 5px;
+              background: #017dff;
+              position absolute
+              left:-25px
+              top:27.5px
+              border-radius:7.5px
+              z-index 1
+              //height: 100%;
+            }
+          }
+
+          .pj-content {
+              margin-left:45px
+              position relative
+              &::before {
+              content: '';
+              width: 5px;
+              height:calc(100% + 35px)
+              margin-right: 5px;
+              background: #8bc0ff;
+              position absolute
+              left:-20px
+              top:-35px
+              border-radius:2.5px
+              
+              //height: 100%;
+            }
+          }
+        }
       }
 
       .detail {
         flex-direction: row;
         justify-content: flex-start;
         flex-wrap: wrap;
-        .content{
-            padding-left 30px
-            font-size 16px
-            ul{
-                display block
-                li{
-                    display list-item
-                    margin-bottom 1em
-                    padding-right 60px
-                }
-            }
+        font-size: 15px;
+
+        &>p {
+          padding-left: 30px;
+          flex-basis: 100%;
+
+          a {
+            color: black;
+          }
         }
+
+        .content {
+          padding-left: 0px;
+          font-size: 15px;
+
+          ul {
+            display: block;
+
+            li {
+              display: list-item;
+              margin-bottom: 1em;
+              padding-right: 60px;
+            }
+
+            li:last-child {
+              margin-bottom: 0em;
+            }
+          }
+        }
+
         .progress-detail {
           align-items: center;
           justify-content: center;
@@ -249,12 +416,12 @@ export default {
             align-items: center;
             margin: 0;
             width: 40px;
-            white-space nowrap;
-            &.long{
-                width: 90px;
+            white-space: nowrap;
+
+            &.long {
+              width: 90px;
             }
           }
-          
 
           .progress {
             width: 120px;
@@ -293,6 +460,10 @@ export default {
   display: flex;
 }
 
+p, li, span, a {
+  font-family: PingFang SC, Avenir, Microsoft YaHei, Helvetica, Arial, sans-serif;
+}
+
 .switch {
   position: absolute;
   top: 50px;
@@ -304,6 +475,7 @@ export default {
   justify-content: space-around;
   font-weight: bold;
   align-items: center;
+  background: white;
 }
 
 i {
