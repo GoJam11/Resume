@@ -29,8 +29,8 @@ export default {
   
   a
     display block
-    font-size 22px
-    padding 0px 10px
+    font-size 20px
+    padding 3px 10px
     color black 
     font-weight normal
     text-decoration none

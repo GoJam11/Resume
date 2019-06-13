@@ -26,10 +26,14 @@ const i18n = new VueI18n({
     locale: 'cn',
     messages: {
         cn: {
-            name: '孙果'
+            name: '孙果',
+            s: '的简历',
+            intention: '前端实习'
         },
         en: {
-            name: 'Sun Guo'
+            name: 'Sun Guo',
+            s: '',
+            intention: 'Front-end internship'
         }
     }
 })
