@@ -30,12 +30,27 @@ const i18n = new VueI18n({
         cn: {
             name: '孙果',
             s: '的简历',
-            intention: '前端实习'
+            intention: {
+                t: '求职意向',
+                c: '前端实习'
+            },
+            email: '邮箱：',
+            tel: '电话：',
+            wechat: '微信：',
+            contact: '联系方式'
         },
         en: {
             name: 'Sun Guo',
             s: '',
-            intention: 'Front-end internship'
+
+            intention: {
+                t: 'Intention',
+                c: 'Front-end internship'
+            },
+            email: 'E-mail: ',
+            tel: "Tel: (+86)",
+            wechat: 'Wechat: ',
+            contact: 'Contact'
         }
     }
 })

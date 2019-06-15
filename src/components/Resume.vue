@@ -19,20 +19,20 @@
             </div>
             <div class="right-r">
               <p class="section">
-                <i class="fa fa-bookmark fa-fw"></i>求职意向
+                <i class="fa fa-bookmark fa-fw"></i>{{$t("intention.t")}}
               </p>
-              <p>{{$t("intention")}}</p>
+              <p>{{$t("intention.c")}}</p>
               <p class="section">
-                <i class="fa fa-bookmark fa-fw"></i>联系方式
+                <i class="fa fa-bookmark fa-fw"></i>{{$t("contact")}}
               </p>
               <p>
-                <i class="fa fa-envelope fa-fw"></i>邮箱：iloveos@live.com
+                <i class="fa fa-envelope fa-fw"></i>{{$t("email")}}iloveos@live.com
               </p>
               <p>
-                <i class="fa fa-phone fa-fw"></i>电话：18651403158
+                <i class="fa fa-phone fa-fw"></i>{{$t("tel")}}18651403158
               </p>
               <p>
-                <i class="fa fa-wechat fa-fw"></i> 微信：iloveos
+                <i class="fa fa-wechat fa-fw"></i> {{$t("wechat")}}iloveos
               </p>
             </div>
           </div>
@@ -117,7 +117,7 @@
                   <h2>华工二手市场小程序</h2>
                 </div>
                 <div class="pj-content">
-                  <p>aa</p>
+                  <p>我做的第一个官方的小程序，虽然还没有上线，但是学到了很多前端的基础知识。</p>
                 </div>
               </div>
             </div>
@@ -337,6 +337,9 @@ export default {
           .pj-title {
               margin-left:45px
               position relative
+              h2{
+                  margin-bottom:0px
+              }
             &::before {
               content: '';
               width: 15px;
@@ -355,15 +358,16 @@ export default {
           .pj-content {
               margin-left:45px
               position relative
+              text-indent 2em
               &::before {
               content: '';
               width: 5px;
-              height:calc(100% + 35px)
+              height:calc(100% + 25px)
               margin-right: 5px;
               background: #8bc0ff;
               position absolute
               left:-20px
-              top:-35px
+              top:-25px
               border-radius:2.5px
               
               //height: 100%;
@@ -454,6 +458,7 @@ export default {
 .global {
   display: flex;
   justify-content: center;
+  
 }
 
 * {
