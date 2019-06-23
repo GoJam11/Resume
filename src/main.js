@@ -9,7 +9,7 @@ import './assets/css/font-awesome.min.css'
 import R0 from './components/R0/Resume0.vue'
 import R1 from './components/R1/Resume1.vue'
 import R from './components/Resume.vue'
-
+import HW from './components/HelloWorld.vue'
 //Vue.use(ElementUI)
 Vue.use(VueRouter)
 Vue.use(VueI18n)
@@ -21,6 +21,7 @@ const router = new VueRouter({
         { path: '/r0', component: R0 },
         { path: '/r1', component: R1 },
         { path: '/', component: R },
+        { path: '/md', component: HW }
     ]
 })
 
