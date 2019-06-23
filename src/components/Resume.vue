@@ -15,7 +15,7 @@
           <div class="right">
             <div class="right-l">
               <p class="intro">我是一个由衷热爱前端与交互的前端er，梦想是成为一名前端工程师。</p>
-              <p class="intro">目前正在寻找前端工程师实习岗位的工作机会，希望借此为xxxx献上我的一点绵薄之力。</p>
+              <p class="intro">目前正在寻找前端工程师实习岗位的工作机会，希望借此为贵公司献上我的一点绵薄之力。</p>
             </div>
             <div class="right-r">
               <p class="section">
