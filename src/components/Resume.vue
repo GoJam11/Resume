@@ -246,7 +246,10 @@ progress-color=#017eff //#1caef7
 progress-bg=#017eff7d
 
 .container {
+  position:absolute;
+  overflow:scroll
   width: 100%;
+  height:calc(100% - 44px);
   justify-content: center;
   background: rgba(128, 128, 128, 0.1);
 
@@ -257,9 +260,11 @@ progress-bg=#017eff7d
     position: absolute;
     width: 100%;
     height: 100%;
+    bottom 0px
     background: white;
     animation: loading 3s;
     animation-fill-mode: forwards;
+    z-index 2
 
     .circle {
       animation: loading 0.5s;
@@ -314,6 +319,7 @@ progress-bg=#017eff7d
   flex-direction: column;
   overflow: hidden;
   min-width: 960px;
+  height:max-content
   background: white;
 
   .header {
