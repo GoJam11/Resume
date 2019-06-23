@@ -80,31 +80,59 @@
                 <p>Vue.JS</p>
                 <div class="progress six"></div>
               </div>
-            </div>
-            <p style="padding-left:40px;font-style:italic">扩展</p>
-            <div class="detail">
-              <div class="progress-detail">
-                <p class="long">Cocos Creater</p>
-                <div class="progress three"></div>
-              </div>
               <div class="progress-detail">
                 <p>小程序</p>
                 <div class="progress five"></div>
               </div>
               <div class="progress-detail">
-                <p>PHP</p>
+                <p >Cocos</p>
                 <div class="progress three"></div>
               </div>
             </div>
-            <div class="detail">
-              <div class="content" style="margin-top:30px">
-                <ul>
-                  <li>熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具</li>
-                  <li>能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态，能够在文档的协助下配置环境。也使用JS工具库（如Lodash）、JQuery、CSS in JS相关库、等库与包管理工具。</li>
-                  <li>熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码</li>
-                  <li>有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置与Docker等，会使用Vim等命令行工具</li>
-                </ul>
+            
+            
+            <div class="detail" style="flex-direction:column">
+              
+              <div class="detail-project">
+              <div class="project">
+                <div class="pj-title">
+                  <h2>HTML/CSS</h2>
+                </div>
+                <div class="pj-content">
+                  <p>熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具</p>
+                </div>
               </div>
+            </div>
+            <div class="detail-project">
+              <div class="project">
+                <div class="pj-title">
+                  <h2>JavaScript与Vue.JS</h2>
+                </div>
+                <div class="pj-content">
+                  <p>能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态，能够在文档的协助下配置环境。也使用JS工具库（如Lodash）、JQuery、CSS in JS相关库、等库与包管理工具。</p>
+                </div>
+              </div>
+            </div>
+            <div class="detail-project">
+              <div class="project">
+                <div class="pj-title">
+                  <h2>Webpack、Git、NPM等工具</h2>
+                </div>
+                <div class="pj-content">
+                  <p>熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码</p>
+                </div>
+              </div>
+            </div>
+            <div class="detail-project">
+              <div class="project">
+                <div class="pj-title">
+                  <h2>其他</h2>
+                </div>
+                <div class="pj-content">
+                  <p>有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置与Docker等，会使用Vim等命令行工具</p>
+                </div>
+              </div>
+            </div>
             </div>
           </div>
           <div class="section">
@@ -117,9 +145,36 @@
                   <h2>华工二手市场小程序</h2>
                 </div>
                 <div class="pj-content">
-                  <p>设计靠谱，功能完善的二手交易平台，使用组件化的方式开发，与Spring后端进行交互。在布局中应用了许多CSS属性。</p>
+                  <p>暂未上线，功能完善的二手交易平台，我负责使用组件化的方式开发前端，与Spring后端进行交互。</p>
                 </div>
               </div>
+              
+            </div>
+            <div class="detail-project">
+              <div class="project">
+                <div class="pj-title">
+                  <h2>简历Resume
+                    <a href="https://github.com/GoJam11/Resume/"><i class="fa fa-github" style="margin-left:.5em"></i></a>
+                  </h2>
+                </div>
+                <div class="pj-content">
+                  <p>参考前端大牛的简历，简洁优雅。</p>
+                </div>
+              </div>
+              
+            </div>
+            <div class="detail-project">
+              <div class="project">
+                <div class="pj-title">
+                  <h2>Vue+Wordpress博客
+                    <a href="https://github.com/GoJam11/el-wordpress-blog"><i class="fa fa-github" style="margin-left:.5em"></i></a>
+                  </h2>
+                </div>
+                <div class="pj-content">
+                  <p>以Wordpress作为后端，利用RESTful接口获取文章数据并展示。</p>
+                </div>
+              </div>
+              
             </div>
           </div>
           <div style="margin:15px;justify-content:center">
@@ -345,6 +400,13 @@ progress-bg=#017eff7d
       }
 
       .detail-project {
+        &:last-child{
+          .project{
+            .pj-content:before{
+              height:calc(100% + 35px)
+            }
+          }
+        }
         .project {
           flex-direction: column;
 
@@ -353,6 +415,13 @@ progress-bg=#017eff7d
               position relative
               h2{
                   margin-bottom:0px
+                  a{
+                    color:black
+                    text-decoration none
+                    &:hover{
+                      
+                    }
+                  }
               }
             &::before {
               content: '';
@@ -362,7 +431,7 @@ progress-bg=#017eff7d
               background: #017dff;
               position absolute
               left:-25px
-              top:27.5px
+              top:25.5px
               border-radius:7.5px
               z-index 1
               //height: 100%;
@@ -372,12 +441,12 @@ progress-bg=#017eff7d
           .pj-content {
               margin-left:45px
               position relative
-              text-indent 2em
+              //text-indent 2em
               color:#676767
               &::before {
               content: '';
               width: 5px;
-              height:calc(100% + 25px)
+              height:calc(100% + 55px)
               margin-right: 5px;
               background: #8bc0ff;
               position absolute
@@ -403,8 +472,10 @@ progress-bg=#017eff7d
 
           a {
             color: black;
+            
           }
         }
+        
 
         .content {
           padding-left: 0px;
