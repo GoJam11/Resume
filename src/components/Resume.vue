@@ -231,9 +231,10 @@ export default {
   },
   created() {
     let that = this;
-    setTimeout(() => {
+     setTimeout(() => {
       that.loading = false;
-    }, 3000);
+    }, 3000); 
+    
   }
 };
 </script>
@@ -247,11 +248,14 @@ progress-bg=#017eff7d
 
 .container {
   position:absolute;
-  overflow:scroll
+  overflow:hidden
   width: 100%;
   height:calc(100% - 44px);
   justify-content: center;
   background: rgba(128, 128, 128, 0.1);
+  animation-name:overflow;
+  animation-fill-mode:forwards;
+  animation-duration 3s
 
   &:hover {
   }
@@ -262,7 +266,8 @@ progress-bg=#017eff7d
     height: 100%;
     bottom 0px
     background: white;
-    animation: loading 3s;
+    animation: loading;
+    animation-duration:3s
     animation-fill-mode: forwards;
     z-index 2
 
@@ -288,6 +293,11 @@ progress-bg=#017eff7d
       }
     }
   }
+  @keyframes overflow{
+    100%{
+      overflow:scroll
+    }
+  }
 
   @keyframes lg {
     100% {
@@ -304,6 +314,7 @@ progress-bg=#017eff7d
   @keyframes loading {
     100% {
       opacity: 0;
+      //transform :translate(-100%,0px)
       display: none;
     }
   }
@@ -319,7 +330,7 @@ progress-bg=#017eff7d
   flex-direction: column;
   overflow: hidden;
   min-width: 960px;
-  height:max-content
+  height:card-height=max-content
   background: white;
 
   .header {
