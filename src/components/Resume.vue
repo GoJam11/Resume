@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="card">
-        <header class="header">
+        <header :style="style.header" class="header">
           <div class="left">
             <p>{{$t("name")}}</p>
             <p class="s">{{$t("s")}}</p>
@@ -44,7 +44,7 @@
         </header>
         <div class="body">
           <!--section-->
-          <mySection>
+          <mySection :theme="currentTheme">
             <template v-slot:title>
               <i class="fa fa-bookmark fa-fw"></i>基本信息
             </template>
@@ -53,7 +53,7 @@
                 <span style="font-weight:bold">个人信息：</span>孙果 / 男 / 19岁 / 大二
               </p>
               <p>
-                <span style="font-weight:bold">教育经历：</span>华南理工大学 广告学
+                <span style="font-weight:bold">教育经历：</span>华南理工大学
               </p>
               <p>
                 <span style="font-weight:bold">英语水平：</span>CET-6 530
@@ -69,40 +69,47 @@
               </p>
             </template>
           </mySection>
-          <mySection>
+          <mySection :theme="currentTheme">
             <template v-slot:title>
               <i class="fa fa-bookmark fa-fw"></i>技能
             </template>
             <template v-slot:detail>
               <div class="detail">
-                <div class="progress-detail">
-                  <p>HTML</p>
-                  <div class="progress five"></div>
-                </div>
-                <div class="progress-detail">
-                  <p>CSS</p>
-                  <div class="progress seven"></div>
-                </div>
-                <div class="progress-detail">
-                  <p>JS</p>
-                  <div class="progress six"></div>
-                </div>
-                <div class="progress-detail">
-                  <p>Vue.JS</p>
-                  <div class="progress six"></div>
-                </div>
-                <div class="progress-detail">
-                  <p>小程序</p>
-                  <div class="progress five"></div>
-                </div>
-                <div class="progress-detail">
-                  <p>Cocos</p>
-                  <div class="progress three"></div>
-                </div>
+                <Progress :theme="currentTheme" percent="50%">
+                  <template v-slot:name>
+                    <p>HTML</p>
+                  </template>
+                </Progress>
+                <Progress :theme="currentTheme" percent="70%">
+                  <template v-slot:name>
+                    <p>CSS</p>
+                  </template>
+                </Progress>
+                <Progress :theme="currentTheme" percent="60%">
+                  <template v-slot:name>
+                    <p>JS</p>
+                  </template>
+                </Progress>
+                <Progress :theme="currentTheme" percent="60%">
+                  <template v-slot:name>
+                    <p>Vue.JS</p>
+                  </template>
+                </Progress>
+                <Progress :theme="currentTheme" percent="50%">
+                  <template v-slot:name>
+                    <p>小程序</p>
+                  </template>
+                </Progress>
+                <Progress :theme="currentTheme" percent="30%">
+                  <template v-slot:name>
+                    <p>Cocos</p>
+                  </template>
+                </Progress>
+           
               </div>
 
               <div class="detail" style="flex-direction:column">
-                <TimeLine>
+                <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2>HTML/CSS</h2>
                   </template>
@@ -110,7 +117,7 @@
                     <p>熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具</p>
                   </template>
                 </TimeLine>
-                <TimeLine>
+                <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2>JavaScript与Vue.JS</h2>
                   </template>
@@ -118,7 +125,7 @@
                     <p>能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态，能够在文档的协助下配置环境。也使用JS工具库（如Lodash）、JQuery、CSS in JS相关库、等库与包管理工具。</p>
                   </template>
                 </TimeLine>
-                <TimeLine>
+                <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2>Webpack、Git、NPM等工具</h2>
                   </template>
@@ -126,7 +133,7 @@
                     <p>熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码</p>
                   </template>
                 </TimeLine>
-                <TimeLine>
+                <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2>其他</h2>
                   </template>
@@ -137,13 +144,13 @@
               </div>
             </template>
           </mySection>
-          <mySection>
+          <mySection :theme="currentTheme">
             <template v-slot:title>
               <i class="fa fa-bookmark fa-fw"></i>项目经验
             </template>
             <template v-slot:detail>
               <div style="flex-direction:column">
-                <TimeLine>
+                <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2>华工二手市场小程序</h2>
                   </template>
@@ -151,7 +158,7 @@
                     <p>暂未上线，功能完善的二手交易平台，我负责使用组件化的方式开发前端，与Spring后端进行交互。</p>
                   </template>
                 </TimeLine>
-                <TimeLine>
+                <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2>
                       简历Resume
@@ -164,7 +171,7 @@
                     <p>参考前端大牛的简历，简洁优雅。</p>
                   </template>
                 </TimeLine>
-                <TimeLine>
+                <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2>
                       Vue+Wordpress博客
@@ -203,6 +210,7 @@
       <span style="pointer-events:none">中文</span>
       <span style="color:white;pointer-events:none">EN</span>
     </div>
+    <div :style="cswitch" class="color-switch" v-on:click="changeTheme" ></div>
   </div>
 </template>
 
@@ -210,14 +218,25 @@
 import { setTimeout } from "timers";
 import mySection from "./Section";
 import TimeLine from "./TimeLine";
+import Progress from './Progress'
 export default {
   components: {
     mySection,
-    TimeLine
+    TimeLine,
+    Progress
   },
   data: () => {
     return {
-      loading: true
+      loading: true,
+      cswitch:{
+        background:"#2faffe"
+      },
+      currentTheme:"light",
+      style:{
+        header:{
+          background:''
+        }
+      }
     };
   },
   methods: {
@@ -246,6 +265,21 @@ export default {
     },
     scroll(e) {
       console.log(e);
+    },
+    changeTheme(){
+      if(this.currentTheme=="light"){
+        this.currentTheme="blue"
+        this.cswitch.background="#267aff";
+        this.style.header.background="#267aff"
+      }else{
+        this.currentTheme="light"
+        this.cswitch.background="#2faffe";
+        
+        this.style.header.background="linear-gradient(180deg, #5ad6ff, #009dff)"
+        
+      }
+      
+      console.log('clicked')
     }
   },
   created() {
@@ -253,14 +287,14 @@ export default {
     setTimeout(() => {
       that.loading = false;
       console.log("allow scroll");
-    }, 3000);
+    }, 2000);
   }
 };
 </script>
 
 <style lang="stylus" scoped>
 primary-color = #007eff; // #1caef7
-header-color = #267aff; // #1caef7
+header-color = linear-gradient(180deg, #5ad6ff, #009dff);//linear-gradient(180deg, #8edaf3, #26acff); // #1caef7 #267aff
 light-color = #007eff;
 progress-color = #017eff; // #1caef7
 progress-bg = #017eff7d;
@@ -469,5 +503,15 @@ h2 {
 }
 *::selection {
   background: rgba(0, 158, 255, 0.32);
+}
+
+.color-switch{
+  position:absolute;
+  width:50px;
+  height:50px;
+  border-radius: 6px;
+  bottom:10px;
+  left:10px;
+  background:#2faffe
 }
 </style>

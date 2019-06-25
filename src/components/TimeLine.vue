@@ -1,19 +1,53 @@
 <template>
   <div class="detail-project">
     <div class="project">
+      <div class="before-title" :style="style"></div>
       <div class="pj-title">
-      
-            <slot name="title"></slot>
-        
+        <slot name="title"></slot>
       </div>
+      <div class="before-content" :style="style2"></div>
       <div class="pj-content">
-          <slot name="content"></slot>
+        <slot name="content"></slot>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {};
+export default {
+  props: {
+    theme: String
+  },
+  computed: {
+    style() {
+      switch (this.theme) {
+        case "light":
+          return {
+            background: "#2faffe"
+          };
+          break;
+        case "blue":
+          return {
+            background: "#267aff"
+          };
+          break;
+      }
+    },
+    style2() {
+      switch (this.theme) {
+        case "light":
+          return {
+            background: "rgb(138, 216, 244)"
+          };
+          break;
+        case "blue":
+          return {
+            background: "rgba(1, 126, 255, 0.49)"
+          };
+          break;
+      }
+    }
+  }
+};
 </script>
 <style lang="stylus" scoped>
 .detail-project {
@@ -32,13 +66,6 @@ export default {};
       .pj-title::before {
         // content: '';
         // box-shadow 0 0 5px 0 primary-color
-        animation-name: incline;
-
-        @keyframes incline {
-          100% {
-            transform: rotateZ(45deg);
-          }
-        }
       }
 
       .pj-content::before {
@@ -67,16 +94,6 @@ export default {};
       }
 
       &::before {
-        content: '';
-        width: 15px;
-        height: 15px;
-        margin-right: 5px;
-        background: #017dff;
-        position: absolute;
-        left: -25px;
-        top: 7.5px;
-        border-radius: 7.5px;
-        z-index: 1;
         // height: 100%;
       }
     }
@@ -86,19 +103,63 @@ export default {};
       position: relative;
       // text-indent 2em
       color: #676767;
-
-      &::before {
+      /* &::before {
         content: '';
         width: 5px;
         height: calc(100% + 55px);
         margin-right: 5px;
-        background: #8bc0ff;
+        background: #8ad8f4;
         position: absolute;
         left: -20px;
         top: -25px;
         border-radius: 2.5px;
+      } */
+    }
+  }
+}
+
+.project {
+  position: relative;
+}
+
+.before-title {
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+  background: #2faffe;
+  position: absolute;
+  left: 20px;
+  top: 27.5px;
+  border-radius: 7.5px;
+  z-index: 1;
+
+  &:hover {
+    transition: 0.5s;
+    background: #8ad8f4;
+    border-radius: 3px;
+    // animation-name: incline;
+    animation-duration: 0.3s;
+    // animation-iteration-count infinite
+    animation-fill-mode: forwards;
+
+    @keyframes incline {
+      100% {
+        // transform: scale(1.2);
+        background: #8ad8f4;
+        border-radius: 3px;
       }
     }
   }
+}
+
+.before-content {
+  width: 5px;
+  height: calc(100%);
+  margin-right: 5px;
+  background: rgb(138, 216, 244);
+  position: absolute;
+  left: 25px;
+  top: 30px;
+  border-radius: 2.5px;
 }
 </style>

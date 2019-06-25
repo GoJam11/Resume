@@ -2,7 +2,7 @@
   <div style="flex-direction: column;
     padding: 0 5px;">
     <div class="section">
-      <p class="title">
+      <p class="title" :style="style">
         <slot name="title"></slot>
       </p>
       <div class="detail">
@@ -14,16 +14,34 @@
 
 <script>
 export default {
-
+  props: {
+    theme: String
+  },
+  computed: {
+    style() {
+      switch (this.theme) {
+        case "light":
+            return{
+                color:"#2faffe"
+            }
+          break;
+        case "blue":
+            return{
+                color:"#267aff"
+            }
+          break;
+      }
+    }
+  }
 };
 </script>
 
 <style lang="stylus" scoped>
-primary-color = #007eff; // #1caef7
+primary-color = #2faffe; // #1caef7
 header-color = #267aff; // #1caef7
 light-color = #007eff;
-progress-color = #017eff; // #1caef7
-progress-bg = #017eff7d;
+progress-color = #2faffe; // #1caef7
+progress-bg = #8ad8f4;
 
 .section {
   padding: 0 20px;
@@ -38,90 +56,11 @@ progress-bg = #017eff7d;
     i {
       align-items: center;
     }
-  }
-
-  .detail-project {
-    &:last-child {
-      .project {
-        .pj-content:before {
-          height: calc(100% + 35px);
-        }
-      }
-    }
 
     &:hover {
-      .project {
-        transition: 1s;
-
-        .pj-title::before {
-          // content: '';
-          // box-shadow 0 0 5px 0 primary-color
-          animation-name: incline;
-
-          @keyframes incline {
-            100% {
-              transform: rotateZ(45deg);
-            }
-          }
-        }
-
-        .pj-content::before {
-          // box-shadow 0 0 5px 0 #8bc0ff
-        }
-      }
-    }
-
-    .project {
-      flex-direction: column;
-
-      .pj-title {
-        margin-left: 45px;
-        position: relative;
-
-        h2 {
-          margin-bottom: 0px;
-
-          a {
-            color: black;
-            text-decoration: none;
-
-            &:hover {
-            }
-          }
-        }
-
-        &::before {
-          content: '';
-          width: 15px;
-          height: 15px;
-          margin-right: 5px;
-          background: #017dff;
-          position: absolute;
-          left: -25px;
-          top: 25.5px;
-          border-radius: 7.5px;
-          z-index: 1;
-          // height: 100%;
-        }
-      }
-
-      .pj-content {
-        margin-left: 45px;
-        position: relative;
-        // text-indent 2em
-        color: #676767;
-
-        &::before {
-          content: '';
-          width: 5px;
-          height: calc(100% + 55px);
-          margin-right: 5px;
-          background: #8bc0ff;
-          position: absolute;
-          left: -20px;
-          top: -25px;
-          border-radius: 2.5px;
-        }
+      i {
+        // transition .5s
+        // transform rotateZ(270deg) translate(7px,0px)
       }
     }
   }
@@ -179,6 +118,12 @@ progress-bg = #017eff7d;
       }
 
       .progress {
+        transition: 0.3s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+
         width: 120px;
         height: 14px;
         border-radius: 7px;
