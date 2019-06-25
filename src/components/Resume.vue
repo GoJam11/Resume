@@ -233,6 +233,7 @@ export default {
     let that = this;
      setTimeout(() => {
       that.loading = false;
+      console.log('allow scroll')
     }, 3000); 
     
   }
@@ -248,13 +249,12 @@ progress-bg=#017eff7d
 
 .container {
   position:absolute;
-  overflow:hidden
+  overflow:scroll
   width: 100%;
   height:calc(100% - 44px);
   justify-content: center;
   background: rgba(128, 128, 128, 0.1);
   animation-name:overflow;
-  animation-fill-mode:forwards;
   animation-duration 3s
 
   &:hover {
@@ -294,6 +294,9 @@ progress-bg=#017eff7d
     }
   }
   @keyframes overflow{
+    0%{
+      overflow hidden
+    }
     100%{
       overflow:scroll
     }
