@@ -6,6 +6,9 @@
           <div class="circle sm"></div>
         </div>
       </div>
+      <div class="mobile-loading">
+        <p style="position:absolute;top:calc(50%);left:calc(50% - 120px);font-size:24px">请使用电脑或更大屏幕的设备访问</p>
+      </div>
       <div class="card">
         <header :style="style.header" class="header">
           <div class="left">
@@ -105,7 +108,6 @@
                     <p>Cocos</p>
                   </template>
                 </Progress>
-           
               </div>
 
               <div class="detail" style="flex-direction:column">
@@ -155,7 +157,10 @@
                     <h2>华工二手市场小程序</h2>
                   </template>
                   <template v-slot:content>
-                    <p>暂未上线，功能完善的二手交易平台，我负责使用组件化的方式开发前端，与Spring后端进行交互。</p>
+                    <p>
+                      暂未上线，功能完善的二手交易平台，我负责使用
+                      <b>组件化</b>的方式开发前端，与Spring后端进行交互。
+                    </p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
@@ -210,7 +215,7 @@
       <span style="pointer-events:none">中文</span>
       <span style="color:white;pointer-events:none">EN</span>
     </div>
-    <div :style="cswitch" class="color-switch" v-on:click="changeTheme" ></div>
+    <div :style="cswitch" class="color-switch" v-on:click="changeTheme"></div>
   </div>
 </template>
 
@@ -218,7 +223,7 @@
 import { setTimeout } from "timers";
 import mySection from "./Section";
 import TimeLine from "./TimeLine";
-import Progress from './Progress'
+import Progress from "./Progress";
 export default {
   components: {
     mySection,
@@ -228,13 +233,13 @@ export default {
   data: () => {
     return {
       loading: true,
-      cswitch:{
-        background:"#2faffe"
+      cswitch: {
+        background: "#2faffe"
       },
-      currentTheme:"light",
-      style:{
-        header:{
-          background:''
+      currentTheme: "light",
+      style: {
+        header: {
+          background: ""
         }
       }
     };
@@ -266,20 +271,20 @@ export default {
     scroll(e) {
       console.log(e);
     },
-    changeTheme(){
-      if(this.currentTheme=="light"){
-        this.currentTheme="blue"
-        this.cswitch.background="#267aff";
-        this.style.header.background="#267aff"
-      }else{
-        this.currentTheme="light"
-        this.cswitch.background="#2faffe";
-        
-        this.style.header.background="linear-gradient(180deg, #5ad6ff, #009dff)"
-        
+    changeTheme() {
+      if (this.currentTheme == "light") {
+        this.currentTheme = "blue";
+        this.cswitch.background = "#267aff";
+        this.style.header.background = "#267aff";
+      } else {
+        this.currentTheme = "light";
+        this.cswitch.background = "#2faffe";
+
+        this.style.header.background =
+          "linear-gradient(180deg, #5ad6ff, #009dff)";
       }
-      
-      console.log('clicked')
+
+      console.log("clicked");
     }
   },
   created() {
@@ -289,8 +294,8 @@ export default {
       console.log("allow scroll");
     }, 2000);
   },
-  mounted(){
-    if(Math.random()>0.5){
+  mounted() {
+    if (Math.random() > 0.5) {
       this.changeTheme();
     }
   }
@@ -299,7 +304,7 @@ export default {
 
 <style lang="stylus" scoped>
 primary-color = #007eff; // #1caef7
-header-color = linear-gradient(180deg, #5ad6ff, #009dff);//linear-gradient(180deg, #8edaf3, #26acff); // #1caef7 #267aff
+header-color = linear-gradient(180deg, #5ad6ff, #009dff); // linear-gradient(180deg, #8edaf3, #26acff); // #1caef7 #267aff
 light-color = #007eff;
 progress-color = #017eff; // #1caef7
 progress-bg = #017eff7d;
@@ -316,6 +321,22 @@ progress-bg = #017eff7d;
 
   &:hover {
   }
+
+  .mobile-loading{
+    display:none
+  }
+
+@media screen and (max-width:994px){
+  .mobile-loading {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index:2
+    display block
+  }
+}
+  
 
   .loading {
     position: absolute;
@@ -423,7 +444,7 @@ progress-bg = #017eff7d;
       font-size: 22px;
       padding: 15px 0px;
       flex-grow: 1;
-      width:70%
+      width: 70%;
 
       p {
         margin-bottom: 0;
@@ -511,13 +532,13 @@ h2 {
   background: rgba(0, 158, 255, 0.32);
 }
 
-.color-switch{
-  position:absolute;
-  width:50px;
-  height:50px;
+.color-switch {
+  position: absolute;
+  width: 50px;
+  height: 50px;
   border-radius: 6px;
-  bottom:10px;
-  left:10px;
-  background:#2faffe
+  bottom: 10px;
+  left: 10px;
+  background: #2faffe;
 }
 </style>
