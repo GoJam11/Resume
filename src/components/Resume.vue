@@ -53,7 +53,7 @@
                 <span style="font-weight:bold">个人信息：</span>孙果 / 男 / 19岁 / 大二
               </p>
               <p>
-                <span style="font-weight:bold">教育经历：</span>华南理工大学
+                <span style="font-weight:bold">教育经历：</span>华南理工大学 本科
               </p>
               <p>
                 <span style="font-weight:bold">英语水平：</span>CET-6 530
@@ -288,6 +288,11 @@ export default {
       that.loading = false;
       console.log("allow scroll");
     }, 2000);
+  },
+  mounted(){
+    if(Math.random()>0.5){
+      this.changeTheme();
+    }
   }
 };
 </script>
@@ -398,7 +403,7 @@ progress-bg = #017eff7d;
     .left {
       color: white;
       font-size: 54px;
-      width: 35%;
+      width: 30%;
       justify-content: center;
       align-items: center;
       flex-direction: column;
@@ -418,6 +423,7 @@ progress-bg = #017eff7d;
       font-size: 22px;
       padding: 15px 0px;
       flex-grow: 1;
+      width:70%
 
       p {
         margin-bottom: 0;
@@ -440,8 +446,8 @@ progress-bg = #017eff7d;
 
         .intro {
           text-indent: 2em;
-          padding-left: 32px;
-          padding-right: 32px;
+          padding-left: 1em;
+          padding-right: 3em;
         }
       }
 
