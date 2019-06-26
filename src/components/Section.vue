@@ -21,14 +21,14 @@ export default {
     style() {
       switch (this.theme) {
         case "light":
-            return{
-                color:"#2faffe"
-            }
+          return {
+            color: "#2faffe"
+          };
           break;
         case "blue":
-            return{
-                color:"#267aff"
-            }
+          return {
+            color: "#267aff"
+          };
           break;
       }
     }

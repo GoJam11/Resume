@@ -116,7 +116,7 @@
                     <h2>HTML/CSS</h2>
                   </template>
                   <template v-slot:content>
-                    <p>熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具</p>
+                    <p>熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。</p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
@@ -132,7 +132,7 @@
                     <h2>Webpack、Git、NPM等工具</h2>
                   </template>
                   <template v-slot:content>
-                    <p>熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码</p>
+                    <p>熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码。</p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
@@ -140,7 +140,7 @@
                     <h2>其他</h2>
                   </template>
                   <template v-slot:content>
-                    <p>有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置与Docker等，会使用Vim等命令行工具</p>
+                    <p>有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置（LAMP和LNMP）与Docker等，会使用Vim等命令行工具。</p>
                   </template>
                 </TimeLine>
               </div>
@@ -158,8 +158,7 @@
                   </template>
                   <template v-slot:content>
                     <p>
-                      暂未上线，功能完善的二手交易平台，我负责使用
-                      <b>组件化</b>的方式开发前端，与Spring后端进行交互。
+                      暂未上线，功能完善的二手交易平台，我负责使用<b>组件化</b>的方式开发前端，与Spring后端进行交互。微信小程序开发主要参考官方文档，从这个项目中了解了小程序开发与web网页的区别，比如原生组件和web组件组合，以及不标准的API和不支持DOM操作。
                     </p>
                   </template>
                 </TimeLine>
@@ -173,7 +172,7 @@
                     </h2>
                   </template>
                   <template v-slot:content>
-                    <p>参考前端大牛的简历，简洁优雅。</p>
+                    <p>参考前端大牛的简历，简洁优雅。简历是一个由vue-cli创建的项目，使用Stylus预处理器编辑样式，包括时间轴等多个组件，支持切换主题和语言。兼容iPad与桌面端的Chrome、Safari等现代浏览器。</p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
@@ -186,7 +185,7 @@
                     </h2>
                   </template>
                   <template v-slot:content>
-                    <p>以Wordpress作为后端，利用RESTful接口获取文章数据并展示。</p>
+                    <p>以Wordpress作为<b>后端</b>，利用RESTful接口获取文章数据并展示。项目中使用了axios、element ui，通过正则和history api路由，先后以JSONP、服务器代理、设置CORS头的形式解决跨域问题，同时允许在不同分辨率下呈现不同的排版效果。</p>
                   </template>
                 </TimeLine>
               </div>
@@ -523,12 +522,16 @@ i {
 </style>
 
 <style>
-p,
-h2 {
+
+h2,p {
   cursor: default;
+  
+}
+b{
+  display: inline!important
 }
 *::selection {
-  background: rgba(0, 158, 255, 0.32);
+  background: rgba(0, 158, 255, 0.32)!important;
 }
 
 .color-switch {

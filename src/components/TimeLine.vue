@@ -1,11 +1,10 @@
 <template>
   <div class="detail-project">
     <div class="project">
-      
       <div class="pj-title">
         <slot name="title"></slot>
       </div>
-      
+
       <div class="pj-content">
         <slot name="content"></slot>
       </div>
@@ -91,7 +90,6 @@ export default {
           text-decoration: none;
         }
       }
-
     }
 
     .pj-content {
@@ -99,6 +97,9 @@ export default {
       position: relative;
       // text-indent 2em
       color: #676767;
+      p{
+        display:block!important
+      }
       /* &::before {
         content: '';
         width: 5px;
@@ -127,17 +128,17 @@ export default {
   left: 20px;
   top: 27.5px;
   border-radius: 7.5px;
-  //z-index: 1;
 
+  // z-index: 1;
   &:hover {
     transition: 0.5s;
     background: #8ad8f4;
     border-radius: 3px;
     // animation-name: incline;
     animation-duration: 0.3s;
-    // animation-iteration-count infinite
-    //animation-fill-mode: forwards;
 
+    // animation-iteration-count infinite
+    // animation-fill-mode: forwards;
     @keyframes incline {
       100% {
         // transform: scale(1.2);
@@ -157,6 +158,5 @@ export default {
   left: 25px;
   top: 30px;
   border-radius: 2.5px;
-  
 }
 </style>

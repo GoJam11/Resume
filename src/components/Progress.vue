@@ -1,7 +1,7 @@
 <template>
   <div class="progress-detail">
     <slot name="name"></slot>
-    <div :style="style" class="progress five" ></div>
+    <div :style="style" class="progress five"></div>
   </div>
 </template>
 
@@ -11,17 +11,23 @@ export default {
     percent: String,
     theme: String
   },
-  computed:{
-       style() {
+  computed: {
+    style() {
       switch (this.theme) {
         case "light":
           return {
-            background: "linear-gradient(to right, #2faffe "+this.percent+", #8ad8f4 0%)"
+            background:
+              "linear-gradient(to right, #2faffe " +
+              this.percent +
+              ", #8ad8f4 0%)"
           };
           break;
         case "blue":
           return {
-            background: "linear-gradient(90deg,#017eff "+this.percent+",rgba(1,126,255,.49) 0)"
+            background:
+              "linear-gradient(90deg,#017eff " +
+              this.percent +
+              ",rgba(1,126,255,.49) 0)"
           };
           break;
       }
