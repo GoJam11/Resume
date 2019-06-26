@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="mobile-loading">
-        <p style="position:absolute;top:calc(50%);left:calc(50% - 120px);font-size:24px">请使用电脑或更大屏幕的设备访问</p>
+        <p style="position:absolute;top:40%;padding:0px 40px;font-size:24px">请使用电脑或更大屏幕的设备访问</p>
       </div>
       <div class="card">
         <header :style="style.header" class="header">
@@ -322,21 +322,20 @@ progress-bg = #017eff7d;
   &:hover {
   }
 
-  .mobile-loading{
-    display:none
+  .mobile-loading {
+    display: none;
   }
 
-@media screen and (max-width:994px){
-  .mobile-loading {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: white;
-    z-index:2
-    display block
+  @media screen and (max-width: 994px) {
+    .mobile-loading {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: white;
+      z-index: 2;
+      display: block;
+    }
   }
-}
-  
 
   .loading {
     position: absolute;
@@ -540,5 +539,13 @@ h2 {
   bottom: 10px;
   left: 10px;
   background: #2faffe;
+}
+
+.detail {
+  width: 100%;
+  justify-content: flex-start;
+  & > div {
+    flex-basis: 1;
+  }
 }
 </style>

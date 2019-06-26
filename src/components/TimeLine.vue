@@ -1,14 +1,16 @@
 <template>
   <div class="detail-project">
     <div class="project">
-      <div class="before-title" :style="style"></div>
+      
       <div class="pj-title">
         <slot name="title"></slot>
       </div>
-      <div class="before-content" :style="style2"></div>
+      
       <div class="pj-content">
         <slot name="content"></slot>
       </div>
+      <div class="before-content" :style="style2"></div>
+      <div class="before-title" :style="style"></div>
     </div>
   </div>
 </template>
@@ -87,15 +89,9 @@ export default {
         a {
           color: black;
           text-decoration: none;
-
-          &:hover {
-          }
         }
       }
 
-      &::before {
-        // height: 100%;
-      }
     }
 
     .pj-content {
@@ -131,7 +127,7 @@ export default {
   left: 20px;
   top: 27.5px;
   border-radius: 7.5px;
-  z-index: 1;
+  //z-index: 1;
 
   &:hover {
     transition: 0.5s;
@@ -140,7 +136,7 @@ export default {
     // animation-name: incline;
     animation-duration: 0.3s;
     // animation-iteration-count infinite
-    animation-fill-mode: forwards;
+    //animation-fill-mode: forwards;
 
     @keyframes incline {
       100% {
@@ -154,12 +150,13 @@ export default {
 
 .before-content {
   width: 5px;
-  height: calc(100%);
+  height: 100%;
   margin-right: 5px;
   background: rgb(138, 216, 244);
   position: absolute;
   left: 25px;
   top: 30px;
   border-radius: 2.5px;
+  
 }
 </style>
