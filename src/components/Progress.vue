@@ -45,9 +45,10 @@ export default {
   p {
     align-items: center;
     margin: 0 !important;
-    width: 40px;
+    width: 90px;
     white-space: nowrap;
-    font-weight: 500;
+    font-weight: 400;
+    font-size:14px;
 
     &.long {
       width: 90px;

@@ -12,8 +12,8 @@
         "element-ui": "^2.9.1",
         "stylus-loader": "^3.0.2",
         "vue": "^2.6.10",
-        "vue-i18n": "^8.11.2",
-        "vue-router": "^3.0.6",
+        "vue-i18n": "^8.15.4",
+        "vue-router": "^3.1.6",
         "yarn": "^1.15.2"
     },
     "devDependencies": {

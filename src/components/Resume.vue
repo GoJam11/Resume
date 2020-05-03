@@ -7,40 +7,46 @@
         </div>
       </div>
       <div class="mobile-loading">
-        <p style="position:absolute;top:40%;padding:0px 40px;font-size:24px">请使用电脑或更大屏幕的设备访问</p>
+        <p style="position:absolute;top:40%;padding:0px 40px;font-size:24px">
+          请使用电脑或更大屏幕的设备访问
+        </p>
       </div>
       <div class="card">
         <header :style="style.header" class="header">
           <div class="left">
-            <p>{{$t("name")}}</p>
-            <p class="s">{{$t("s")}}</p>
+            <p>{{ $t("name") }}</p>
+            <p class="s">{{ $t("s") }}</p>
           </div>
           <div class="right">
             <div class="right-l">
-              <p class="intro">我是一个由衷热爱前端与交互的前端er，梦想是成为一名前端工程师。</p>
-              <p class="intro">目前正在寻找前端工程师实习岗位的工作机会，希望借此为贵公司献上我的一点绵薄之力。</p>
+              <p class="intro">
+                我是一个由衷热爱前端与交互的前端er，梦想是成为一名前端工程师。
+              </p>
+              <p class="intro">
+                目前正在寻找前端工程师实习岗位的工作机会，希望借此为贵公司献上我的一点绵薄之力。
+              </p>
             </div>
             <div class="right-r">
               <p class="section">
                 <i class="fa fa-bookmark fa-fw"></i>
-                {{$t("intention.t")}}
+                {{ $t("intention.t") }}
               </p>
-              <p>{{$t("intention.c")}}</p>
+              <p>{{ $t("intention.c") }}</p>
               <p class="section">
                 <i class="fa fa-bookmark fa-fw"></i>
-                {{$t("contact")}}
+                {{ $t("contact") }}
               </p>
               <p>
                 <i class="fa fa-envelope fa-fw"></i>
-                {{$t("email")}}iloveos@live.com
+                {{ $t("email") }}iloveos@live.com
               </p>
               <p>
                 <i class="fa fa-phone fa-fw"></i>
-                {{$t("tel")}}18651403158
+                {{ $t("tel") }}18651403158
               </p>
               <p>
                 <i class="fa fa-wechat fa-fw"></i>
-                {{$t("wechat")}}iloveos
+                {{ $t("wechat") }}iloveos
               </p>
             </div>
           </div>
@@ -53,23 +59,252 @@
             </template>
             <template v-slot:detail>
               <p>
-                <span style="font-weight:bold">个人信息：</span>孙果 / 男 / 19岁 / 大二
+                <span style="font-weight:bold">个人信息：</span>孙果 / 男 / 20岁
+                / 大三
               </p>
               <p>
-                <span style="font-weight:bold">教育经历：</span>华南理工大学 本科
+                <span style="font-weight:bold">教育经历：</span>华南理工大学
+                本科
               </p>
-              <p>
-                <span style="font-weight:bold">英语水平：</span>CET-6 530
-              </p>
+              <p><span style="font-weight:bold">英语水平：</span>CET-6 530</p>
               <p>
                 <span style="font-weight:bold">博客地址：</span>
 
-                <a href="https://guohere.com" target="_blank">https://guohere.com</a>
+                <a href="https://guohere.com" target="_blank"
+                  >https://guohere.com</a
+                >
               </p>
               <p>
                 <span style="font-weight:bold">Github主页：</span>
-                <a href="https://github.com/GoJam11" target="_blank">https://github.com/GoJam11</a>
+                <a href="https://github.com/GoJam11" target="_blank"
+                  >https://github.com/GoJam11</a
+                >
               </p>
+              <p>
+                <span style="font-weight:bold">主要课程：</span>
+              </p>
+               <div class="detail">
+                <Progress :theme="currentTheme" percent="60%">
+                  <template v-slot:name>
+                    <p>计算机网络</p>
+                  </template>
+                </Progress>
+                <Progress :theme="currentTheme" percent="60%">
+                  <template v-slot:name>
+                    <p>操作系统</p>
+                  </template>
+                </Progress>
+                <Progress :theme="currentTheme" percent="60%">
+                  <template v-slot:name>
+                    <p>数据结构</p>
+                  </template>
+                </Progress>
+                <Progress :theme="currentTheme" percent="50%">
+                  <template v-slot:name>
+                    <p>数据库应用</p>
+                  </template>
+                </Progress>
+                <Progress :theme="currentTheme" percent="50%">
+                  <template v-slot:name>
+                    <p>计算机组成原理</p>
+                  </template>
+                </Progress>
+                <Progress :theme="currentTheme" percent="50%">
+                  <template v-slot:name>
+                    <p>计算机安全</p>
+                  </template>
+                </Progress>
+              </div>
+            </template>
+             
+             
+        
+          </mySection>
+           <mySection :theme="currentTheme">
+            <template v-slot:title>
+              <i class="fa fa-bookmark fa-fw"></i>项目经验
+            </template>
+            <template v-slot:detail>
+              <div style="flex-direction:column">
+                <TimeLine :theme="currentTheme" class="hover-img">
+                  <template v-slot:title>
+                    <h2>论坛后台管理系统 2019.7</h2>
+                  </template>
+                  <template v-slot:content>
+                    <p>
+                      配合Node后端提供的API文档，实现后台对论坛、用户、帖子、回复与评论的管理，左边的系统用于结合前端页面模板展示不同信息。两套系统的前端由我独立完成。<br>
+                      在这段项目经历中熟悉了restful
+                      api前后端的开发、设计，ES6语法和实际应用，以及前端路由与状态管理。开发中遇到白屏问题，可能是高版本语法未被转译，配置babel后解决。还遇到了CSS样式不加载的问题，发现是返回的Content-Type不对，重启server后正常。
+                    </p>
+                    <div>
+                      <img
+                        src="../assets/panel1.png"
+                        width="200px"
+                        height="120px"
+                        style="border-radius:5px;margin:5px;margin-left:0;border:solid #9f9ff5 1px"
+                      />
+                      <img
+                        src="../assets/panel3.png"
+                        width="200px"
+                        height="120px"
+                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
+                      />
+                    </div>
+                  </template>
+                </TimeLine>
+                <TimeLine :theme="currentTheme">
+                  <template v-slot:title>
+                    <h2>二手市场小程序 2018.9</h2>
+                  </template>
+                  <template v-slot:content>
+                    <p>
+                      未上线，功能完善的二手交易平台，我负责使用组件化的方式开发小程序前端，与Spring后端进行交互。
+                      <br>微信小程序开发主要参考官方文档，从这个项目中了解了小程序开发与web网页的区别，比如原生组件和web组件组合，以及不标准的API和不支持DOM操作。
+                    </p>
+                    <div>
+                      <img
+                        src="../assets/market1.png"
+                        width="115px"
+                        height="200px"
+                        style="border-radius:5px;margin:5px;margin-left:0;border:solid #9f9ff5 1px"
+                      />
+                      <img
+                        src="../assets/market2.png"
+                        width="115px"
+                        height="200px"
+                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
+                      />
+                      <img
+                        src="../assets/market3.png"
+                        width="115px"
+                        height="200px"
+                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
+                      />
+                    </div>
+                  </template>
+                </TimeLine>
+                <TimeLine :theme="currentTheme">
+                  <template v-slot:title>
+                    <h2>
+                      简历Resume
+                      <a href="https://github.com/GoJam11/Resume/">
+                        <i class="fa fa-github" style="margin-left:.5em"></i>
+                      </a>
+                    </h2>
+                  </template>
+                  <template v-slot:content>
+                    <p>
+                      参考前端大牛的简历，简洁优雅。简历是一个由vue-cli创建的项目，使用Stylus预处理器编辑样式，包括时间轴等多个组件，支持切换主题和语言。兼容iPad与桌面端的Chrome、Safari等现代浏览器。<!--<a style="display:inline;text-decoration:none;color:#676767" href="https://resume.local.guohere.com">(https://resume.local.guohere.com)</a>-->
+                    </p>
+                  </template>
+                </TimeLine>
+                <TimeLine :theme="currentTheme">
+                  <template v-slot:title>
+                    <h2>
+                      Vue博客
+                      <a href="https://github.com/GoJam11/el-wordpress-blog">
+                        <i class="fa fa-github" style="margin-left:.5em"></i>
+                      </a>
+                    </h2>
+                  </template>
+                  <template v-slot:content>
+                    <p>
+                      以Wordpress作为<b>后端</b>，利用RESTful接口获取文章数据并展示。项目中使用了axios、element
+                      ui，通过正则和history
+                      api路由，先后以JSONP、服务器代理、设置CORS头的形式解决跨域问题，同时允许在不同分辨率下呈现不同的排版效果。
+                    </p>
+                    <!--<div>
+                      <img
+                        src="../assets/blog1.png"
+                        height="120px"
+                        
+                        style="border-radius:5px;margin:5px;margin-left:0;border:solid #9f9ff5 1px"
+                      />
+                    </div>-->
+                  </template>
+                </TimeLine>
+                <TimeLine :theme="currentTheme">
+                  <template v-slot:title>
+                    <h2>
+                      其他
+                      <!--<a href="https://github.com/GoJam11/el-wordpress-blog">
+                        <i class="fa fa-github" style="margin-left:.5em"></i>
+                      </a>-->
+                    </h2>
+                  </template>
+                  <template v-slot:content>
+                    <p style="display:flex!important">
+                      <a
+                        class="a-hl"
+                        style="margin-right:12px"
+                        href="https://demo.guohere.com/backgammon/"
+                        target="_blank"
+                        >五子棋AI</a
+                      >
+                      <a
+                        class="a-hl"
+                        style="margin-right:12px"
+                        href="https://manual.local.guohere.com/"
+                        target="_blank"
+                        >前端笔记</a
+                      >
+                      <a
+                        class="a-hl"
+                        style="margin-right:12px"
+                        href="https://demo.guohere.com/chat/"
+                        target="_blank"
+                        >聊天（调用API）</a
+                      >
+                      <a
+                        class="a-hl"
+                        style="margin-right:12px"
+                        href="http://demo.guohere.com/blocks/"
+                        target="_blank"
+                        >拼图</a
+                      >
+                      <a
+                        class="a-hl"
+                        style="margin-right:12px"
+                        href="https://note.guohere.com/"
+                        target="_blank"
+                        >留言板（支持QQ登陆）</a
+                      >
+                    </p>
+                    <!--<div>
+                      <img
+                        src="../assets/five.png"
+                        height="120px"
+                        
+                        style="border-radius:5px;margin:5px;margin-left:0;border:solid #9f9ff5 1px"
+                      />
+                      <img
+                        src="../assets/md.png"
+                        height="120px"
+                        
+                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
+                      />
+                      <img
+                        src="../assets/chat.png"
+                        height="120px"
+                        
+                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
+                      />
+                      <img
+                        src="../assets/blocks.png"
+                        height="120px"
+                        
+                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
+                      />
+                      <img
+                        src="../assets/note.png"
+                        height="120px"
+                        
+                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
+                      />
+                    </div>-->
+                  </template>
+                </TimeLine>
+              </div>
             </template>
           </mySection>
           <mySection :theme="currentTheme">
@@ -77,6 +312,7 @@
               <i class="fa fa-bookmark fa-fw"></i>技能
             </template>
             <template v-slot:detail>
+              <!--
               <div class="detail">
                 <Progress :theme="currentTheme" percent="50%">
                   <template v-slot:name>
@@ -105,10 +341,10 @@
                 </Progress>
                 <Progress :theme="currentTheme" percent="30%">
                   <template v-slot:name>
-                    <p>Cocos</p>
+                    <p>Node</p>
                   </template>
                 </Progress>
-              </div>
+              </div>-->
 
               <div class="detail" style="flex-direction:column">
                 <TimeLine :theme="currentTheme">
@@ -116,7 +352,9 @@
                     <h2>HTML/CSS</h2>
                   </template>
                   <template v-slot:content>
-                    <p>熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。</p>
+                    <p>
+                      熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。
+                    </p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
@@ -124,7 +362,10 @@
                     <h2>JavaScript与Vue.JS</h2>
                   </template>
                   <template v-slot:content>
-                    <p>能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态，能够在文档的协助下配置环境。也使用JS工具库（如Lodash）、JQuery、CSS in JS相关库、等库与包管理工具。</p>
+                    <p>
+                      能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态，能够在文档的协助下配置环境。也使用JS工具库（如Lodash）、JQuery、CSS
+                      in JS相关库、等库与包管理工具。
+                    </p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
@@ -132,7 +373,9 @@
                     <h2>Webpack、Git、NPM等工具</h2>
                   </template>
                   <template v-slot:content>
-                    <p>熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码。</p>
+                    <p>
+                      熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码。
+                    </p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
@@ -140,65 +383,22 @@
                     <h2>其他</h2>
                   </template>
                   <template v-slot:content>
-                    <p>有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置（LAMP和LNMP）与Docker等，会使用Vim等命令行工具。</p>
-                  </template>
-                </TimeLine>
-              </div>
-            </template>
-          </mySection>
-          <mySection :theme="currentTheme">
-            <template v-slot:title>
-              <i class="fa fa-bookmark fa-fw"></i>项目经验
-            </template>
-            <template v-slot:detail>
-              <div style="flex-direction:column">
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2>华工二手市场小程序</h2>
-                  </template>
-                  <template v-slot:content>
                     <p>
-                      暂未上线，功能完善的二手交易平台，我负责使用<b>组件化</b>的方式开发前端，与Spring后端进行交互。微信小程序开发主要参考官方文档，从这个项目中了解了小程序开发与web网页的区别，比如原生组件和web组件组合，以及不标准的API和不支持DOM操作。
+                      有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置（LAMP和LNMP）与Docker等，会使用Vim等命令行工具。会简单使用C++、Python，用Python爬取过数据。
                     </p>
                   </template>
                 </TimeLine>
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2>
-                      简历Resume
-                      <a href="https://github.com/GoJam11/Resume/">
-                        <i class="fa fa-github" style="margin-left:.5em"></i>
-                      </a>
-                    </h2>
-                  </template>
-                  <template v-slot:content>
-                    <p>参考前端大牛的简历，简洁优雅。简历是一个由vue-cli创建的项目，使用Stylus预处理器编辑样式，包括时间轴等多个组件，支持切换主题和语言。兼容iPad与桌面端的Chrome、Safari等现代浏览器。</p>
-                  </template>
-                </TimeLine>
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2>
-                      Vue+Wordpress博客
-                      <a href="https://github.com/GoJam11/el-wordpress-blog">
-                        <i class="fa fa-github" style="margin-left:.5em"></i>
-                      </a>
-                    </h2>
-                  </template>
-                  <template v-slot:content>
-                    <p>以Wordpress作为<b>后端</b>，利用RESTful接口获取文章数据并展示。项目中使用了axios、element ui，通过正则和history api路由，先后以JSONP、服务器代理、设置CORS头的形式解决跨域问题，同时允许在不同分辨率下呈现不同的排版效果。</p>
-                  </template>
-                </TimeLine>
               </div>
             </template>
           </mySection>
+         
           <div style="margin:15px;justify-content:center">
             <a href="https://resume.guohere.com">
               <img
                 style="width:136px;height:20px;margin-right:20px"
                 src="https://api.netlify.com/api/v1/badges/940f63c0-a6cd-4c48-925a-712150fc826b/deploy-status"
-              >
+              />
             </a>
-
             <iframe
               src="https://ghbtns.com/github-btn.html?user=GoJam11&repo=Resume&type=star&count=true"
               frameborder="0"
@@ -207,10 +407,16 @@
               height="20px"
             ></iframe>
           </div>
+         
         </div>
       </div>
     </div>
-    <div ref="switch" v-on:mousemove="move" v-on:mouseleave="leave" class="switch">
+    <div
+      ref="switch"
+      v-on:mousemove="move"
+      v-on:mouseleave="leave"
+      class="switch"
+    >
       <span style="pointer-events:none">中文</span>
       <span style="color:white;pointer-events:none">EN</span>
     </div>
@@ -290,13 +496,14 @@ export default {
     let that = this;
     setTimeout(() => {
       that.loading = false;
-      console.log("allow scroll");
+      //console.log("allow scroll");
     }, 2000);
   },
   mounted() {
-    if (Math.random() > 0.5) {
+    /*if (Math.random() > 0.5) {
       this.changeTheme();
-    }
+    }*/
+    this.changeTheme();
   }
 };
 </script>
@@ -310,9 +517,10 @@ progress-bg = #017eff7d;
 
 .container {
   position: absolute;
-  overflow: scroll;
+  //overflow: scroll;
   width: 100%;
-  height: calc(100% - 44px);
+  //height: calc(100% - 44px);
+  min-height:100%;
   justify-content: center;
   background: rgba(128, 128, 128, 0.1);
   animation-name: overflow;
@@ -503,7 +711,8 @@ p, li, span, a {
 }
 
 .switch {
-  position: absolute;
+  //position: absolute;
+  position:fixed;
   top: 50px;
   right: 20px;
   width: 100px;
@@ -522,20 +731,19 @@ i {
 </style>
 
 <style>
-
-h2,p {
+h2,
+p {
   cursor: default;
-  
 }
-b{
-  display: inline!important
+b {
+  display: inline !important;
 }
 *::selection {
-  background: rgba(0, 158, 255, 0.32)!important;
+  background: rgba(0, 158, 255, 0.32) !important;
 }
 
 .color-switch {
-  position: absolute;
+  position: fixed;
   width: 50px;
   height: 50px;
   border-radius: 6px;
@@ -550,5 +758,21 @@ b{
   & > div {
     flex-basis: 1;
   }
+}
+
+.hover-img:hover::before {
+  //content:'img';
+  position: relative;
+
+  //left:45px;
+}
+
+.a-hl:visited {
+  color: #676767;
+  text-decoration: none !important;
+}
+.a-hl {
+  color: #676767;
+  text-decoration: none !important;
 }
 </style>
