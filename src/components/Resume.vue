@@ -7,8 +7,8 @@
         </div>
       </div>
       <div class="mobile-loading">
-        <p style="position:absolute;top:40%;padding:0px 40px;font-size:24px">
-          请使用电脑或更大屏幕的设备访问
+        <p style="position:absolute;top:50px;padding:0px 40px;font-size:24px;display:block">
+          请使用电脑访问，或最大化浏览器窗口。<br style="display:inline">移动设备请访问<a style="display:inline" href="https://resume.local.guohere.com/react">交互版版简历</a>。
         </p>
       </div>
       <div class="card">
