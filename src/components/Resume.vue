@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="mobile-loading">
-        <p style="position:absolute;top:40%;padding:0px 40px;font-size:24px">
+        <p style="position:absolute;top:0%;padding:0px 40px;font-size:24px">
           请使用电脑或更大屏幕的设备访问
         </p>
       </div>
