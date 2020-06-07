@@ -1,6 +1,6 @@
 <template>
   <div style="flex-direction: column;
-    padding: 0 5px;">
+    padding: 0 5px;margin-bottom:0px">
     <div class="section">
       <p class="title" :style="style">
         <slot name="title"></slot>
@@ -27,7 +27,7 @@ export default {
           break;
         case "blue":
           return {
-            color: "#267aff"
+            color: "#6195FF"
           };
           break;
       }
@@ -51,7 +51,7 @@ progress-bg = #8ad8f4;
   .title {
     font-size: 22px;
     color: primary-color;
-    border-bottom: 1px solid primary-color;
+    //border-bottom: 1px solid primary-color;
 
     i {
       align-items: center;

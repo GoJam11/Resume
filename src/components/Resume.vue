@@ -7,8 +7,16 @@
         </div>
       </div>
       <div class="mobile-loading">
-        <p style="position:absolute;top:50px;padding:0px 40px;font-size:24px;display:block">
-          请使用电脑访问，或最大化浏览器窗口。<br style="display:inline">移动设备请访问<a style="display:inline" href="https://resume.local.guohere.com/react">交互版版简历</a>。
+        <p
+          style="position:absolute;top:50px;padding:0px 40px;font-size:24px;display:block"
+        >
+          请使用电脑访问，或最大化浏览器窗口。<br
+            style="display:inline"
+          />移动设备请访问<a
+            style="display:inline"
+            href="https://resume.local.guohere.com/react"
+            >交互版版简历</a
+          >。
         </p>
       </div>
       <div class="card">
@@ -55,35 +63,45 @@
           <!--section-->
           <mySection :theme="currentTheme">
             <template v-slot:title>
-              <i class="fa fa-bookmark fa-fw"></i>基本信息
+              <i class="fa fa-caret-right"></i
+              ><span class="section-title">基本信息</span>
             </template>
             <template v-slot:detail>
               <p>
-                <span style="font-weight:bold">个人信息：</span>孙果 / 男 / 20岁
-                / 大三
+                <span class="basic-info-item-title">个人信息</span>
+                <span style="font-weight:300">孙果 / 男 / 20岁</span>
               </p>
               <p>
-                <span style="font-weight:bold">教育经历：</span>华南理工大学
-                本科
+                <span class="basic-info-item-title">教育经历</span
+                ><span style="font-weight:300">华南理工大学 2021届本科</span>
               </p>
-              <p><span style="font-weight:bold">英语水平：</span>CET-6 530</p>
               <p>
-                <span style="font-weight:bold">博客地址：</span>
+                <span class="basic-info-item-title">英语水平</span>
+                <span style="font-weight:300">CET-6 530</span>
+              </p>
+              <p>
+                <span class="basic-info-item-title">博客地址</span>
 
-                <a href="https://guohere.com" target="_blank"
-                  >https://guohere.com</a
+                <a
+                  href="https://guohere.com"
+                  target="_blank"
+                  style="font-weight:300;text-decoration:none"
+                  >guohere.com</a
                 >
               </p>
               <p>
-                <span style="font-weight:bold">Github主页：</span>
-                <a href="https://github.com/GoJam11" target="_blank"
-                  >https://github.com/GoJam11</a
+                <span class="basic-info-item-title">Github主页</span>
+                <a
+                  href="https://github.com/GoJam11"
+                  target="_blank"
+                  style="font-weight:300;text-decoration:none"
+                  >github.com/GoJam11</a
                 >
               </p>
-              <p>
-                <span style="font-weight:bold">主要课程：</span>
+              <!-- <p>
+                 <span style="font-weight:500;margin-right:10px">主要课程：</span>
               </p>
-               <div class="detail">
+              <div class="detail">
                 <Progress :theme="currentTheme" percent="60%">
                   <template v-slot:name>
                     <p>计算机网络</p>
@@ -114,25 +132,23 @@
                     <p>计算机安全</p>
                   </template>
                 </Progress>
-              </div>
+              </div>-->
             </template>
-             
-             
-        
           </mySection>
-           <mySection :theme="currentTheme">
+          <mySection :theme="currentTheme">
             <template v-slot:title>
-              <i class="fa fa-bookmark fa-fw"></i>项目经验
+              <i class="fa fa-caret-right"></i
+              ><span class="section-title">项目经验</span>
             </template>
             <template v-slot:detail>
               <div style="flex-direction:column">
                 <TimeLine :theme="currentTheme" class="hover-img">
                   <template v-slot:title>
-                    <h2>论坛后台管理系统 2019.7</h2>
+                    <h2 class="project-item-title">论坛后台管理系统 2019.7</h2>
                   </template>
                   <template v-slot:content>
-                    <p>
-                      配合Node后端提供的API文档，实现后台对论坛、用户、帖子、回复与评论的管理，左边的系统用于结合前端页面模板展示不同信息。两套系统的前端由我独立完成。<br>
+                    <p style="font-weight:300;margin-top:6px">
+                      配合Node后端提供的API文档，实现后台对论坛、用户、帖子、回复与评论的管理，左边的系统用于结合前端页面模板展示不同信息。两套系统的前端由我独立完成。<br />
                       在这段项目经历中熟悉了restful
                       api前后端的开发、设计，ES6语法和实际应用，以及前端路由与状态管理。开发中遇到白屏问题，可能是高版本语法未被转译，配置babel后解决。还遇到了CSS样式不加载的问题，发现是返回的Content-Type不对，重启server后正常。
                     </p>
@@ -154,12 +170,12 @@
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2>二手市场小程序 2018.9</h2>
+                    <h2 class="project-item-title">二手市场小程序 2018.9</h2>
                   </template>
                   <template v-slot:content>
-                    <p>
+                    <p style="font-weight:200">
                       未上线，功能完善的二手交易平台，我负责使用组件化的方式开发小程序前端，与Spring后端进行交互。
-                      <br>微信小程序开发主要参考官方文档，从这个项目中了解了小程序开发与web网页的区别，比如原生组件和web组件组合，以及不标准的API和不支持DOM操作。
+                      <br />微信小程序开发主要参考官方文档，从这个项目中了解了小程序开发与web网页的区别，比如原生组件和web组件组合，以及不标准的API和不支持DOM操作。
                     </p>
                     <div>
                       <img
@@ -185,7 +201,7 @@
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2>
+                    <h2 class="project-item-title">
                       简历Resume
                       <a href="https://github.com/GoJam11/Resume/">
                         <i class="fa fa-github" style="margin-left:.5em"></i>
@@ -193,14 +209,14 @@
                     </h2>
                   </template>
                   <template v-slot:content>
-                    <p>
+                    <p style="font-weight:200">
                       参考前端大牛的简历，简洁优雅。简历是一个由vue-cli创建的项目，使用Stylus预处理器编辑样式，包括时间轴等多个组件，支持切换主题和语言。兼容iPad与桌面端的Chrome、Safari等现代浏览器。<!--<a style="display:inline;text-decoration:none;color:#676767" href="https://resume.local.guohere.com">(https://resume.local.guohere.com)</a>-->
                     </p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2>
+                    <h2 class="project-item-title">
                       Vue博客
                       <a href="https://github.com/GoJam11/el-wordpress-blog">
                         <i class="fa fa-github" style="margin-left:.5em"></i>
@@ -208,24 +224,16 @@
                     </h2>
                   </template>
                   <template v-slot:content>
-                    <p>
+                    <p style="font-weight:200">
                       以Wordpress作为<b>后端</b>，利用RESTful接口获取文章数据并展示。项目中使用了axios、element
                       ui，通过正则和history
                       api路由，先后以JSONP、服务器代理、设置CORS头的形式解决跨域问题，同时允许在不同分辨率下呈现不同的排版效果。
                     </p>
-                    <!--<div>
-                      <img
-                        src="../assets/blog1.png"
-                        height="120px"
-                        
-                        style="border-radius:5px;margin:5px;margin-left:0;border:solid #9f9ff5 1px"
-                      />
-                    </div>-->
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2>
+                    <h2 class="project-item-title" style="font-size:23px">
                       其他
                       <!--<a href="https://github.com/GoJam11/el-wordpress-blog">
                         <i class="fa fa-github" style="margin-left:.5em"></i>
@@ -309,42 +317,11 @@
           </mySection>
           <mySection :theme="currentTheme">
             <template v-slot:title>
-              <i class="fa fa-bookmark fa-fw"></i>技能
+              <i class="fa fa-caret-right"></i
+              ><span class="section-title">技能</span>
             </template>
             <template v-slot:detail>
-              <!--
-              <div class="detail">
-                <Progress :theme="currentTheme" percent="50%">
-                  <template v-slot:name>
-                    <p>HTML</p>
-                  </template>
-                </Progress>
-                <Progress :theme="currentTheme" percent="70%">
-                  <template v-slot:name>
-                    <p>CSS</p>
-                  </template>
-                </Progress>
-                <Progress :theme="currentTheme" percent="60%">
-                  <template v-slot:name>
-                    <p>JS</p>
-                  </template>
-                </Progress>
-                <Progress :theme="currentTheme" percent="60%">
-                  <template v-slot:name>
-                    <p>Vue.JS</p>
-                  </template>
-                </Progress>
-                <Progress :theme="currentTheme" percent="50%">
-                  <template v-slot:name>
-                    <p>小程序</p>
-                  </template>
-                </Progress>
-                <Progress :theme="currentTheme" percent="30%">
-                  <template v-slot:name>
-                    <p>Node</p>
-                  </template>
-                </Progress>
-              </div>-->
+
 
               <div class="detail" style="flex-direction:column">
                 <TimeLine :theme="currentTheme">
@@ -352,7 +329,7 @@
                     <h2>HTML/CSS</h2>
                   </template>
                   <template v-slot:content>
-                    <p>
+                    <p style="font-weight:200">
                       熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。
                     </p>
                   </template>
@@ -362,7 +339,7 @@
                     <h2>JavaScript与Vue.JS</h2>
                   </template>
                   <template v-slot:content>
-                    <p>
+                    <p style="font-weight:200">
                       能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态，能够在文档的协助下配置环境。也使用JS工具库（如Lodash）、JQuery、CSS
                       in JS相关库、等库与包管理工具。
                     </p>
@@ -373,7 +350,7 @@
                     <h2>Webpack、Git、NPM等工具</h2>
                   </template>
                   <template v-slot:content>
-                    <p>
+                    <p style="font-weight:200">
                       熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码。
                     </p>
                   </template>
@@ -383,7 +360,7 @@
                     <h2>其他</h2>
                   </template>
                   <template v-slot:content>
-                    <p>
+                    <p style="font-weight:200">
                       有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置（LAMP和LNMP）与Docker等，会使用Vim等命令行工具。会简单使用C++、Python，用Python爬取过数据。
                     </p>
                   </template>
@@ -391,7 +368,7 @@
               </div>
             </template>
           </mySection>
-         
+
           <div style="margin:15px;justify-content:center">
             <a href="https://resume.guohere.com">
               <img
@@ -407,7 +384,6 @@
               height="20px"
             ></iframe>
           </div>
-         
         </div>
       </div>
     </div>
@@ -433,20 +409,20 @@ export default {
   components: {
     mySection,
     TimeLine,
-    Progress
+    Progress,
   },
   data: () => {
     return {
       loading: true,
       cswitch: {
-        background: "#2faffe"
+        background: "#2faffe",
       },
       currentTheme: "light",
       style: {
         header: {
-          background: ""
-        }
-      }
+          background: "",
+        },
+      },
     };
   },
   methods: {
@@ -479,8 +455,9 @@ export default {
     changeTheme() {
       if (this.currentTheme == "light") {
         this.currentTheme = "blue";
-        this.cswitch.background = "#267aff";
-        this.style.header.background = "#267aff";
+        //#267aff
+        this.cswitch.background = "#6195FF";
+        this.style.header.background = "#6195FF";
       } else {
         this.currentTheme = "light";
         this.cswitch.background = "#2faffe";
@@ -490,7 +467,7 @@ export default {
       }
 
       console.log("clicked");
-    }
+    },
   },
   created() {
     let that = this;
@@ -504,7 +481,7 @@ export default {
       this.changeTheme();
     }*/
     this.changeTheme();
-  }
+  },
 };
 </script>
 
@@ -670,6 +647,7 @@ progress-bg = #017eff7d;
         flex-basis: 60%;
         flex-direction: column;
         justify-content: center;
+        //font-weight:300
 
         .intro {
           text-indent: 2em;
@@ -755,6 +733,7 @@ b {
 .detail {
   width: 100%;
   justify-content: flex-start;
+  overflow: hidden;
   & > div {
     flex-basis: 1;
   }
@@ -774,5 +753,23 @@ b {
 .a-hl {
   color: #676767;
   text-decoration: none !important;
+}
+
+.basic-info-item-title {
+  font-weight: 500;
+  margin-right: 10px;
+  color: #424242;
+}
+.section-title {
+  font-size: 23px;
+  font-weight: 500;
+  margin-left: 10px;
+  color: #2f2f2f;
+}
+.project-item-title {
+  color: #2f2f2f;
+  font-size: 18px;
+  font-weight: 500;
+
 }
 </style>

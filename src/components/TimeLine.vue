@@ -28,7 +28,7 @@ export default {
           break;
         case "blue":
           return {
-            background: "#267aff"
+            background: "#6195FF"
           };
           break;
       }
@@ -95,22 +95,11 @@ export default {
     .pj-content {
       margin-left: 45px;
       position: relative;
-      // text-indent 2em
       color: #676767;
       p{
         display:block!important
       }
-      /* &::before {
-        content: '';
-        width: 5px;
-        height: calc(100% + 55px);
-        margin-right: 5px;
-        background: #8ad8f4;
-        position: absolute;
-        left: -20px;
-        top: -25px;
-        border-radius: 2.5px;
-      } */
+
     }
   }
 }
@@ -126,14 +115,18 @@ export default {
   background: #2faffe;
   position: absolute;
   left: 20px;
-  top: 27.5px;
-  border-radius: 7.5px;
+  top: 22.5px;
+  border-radius: 4px;
 
   // z-index: 1;
   &:hover {
-    transition: 0.5s;
-    background: #8ad8f4;
-    border-radius: 3px;
+    transition: 0.3s;
+    //background: #8ad8f4;
+    /*width:30px;
+    height:30px;
+    left:12.5px;
+    top:15px
+    border-radius: 15px;*/
     // animation-name: incline;
     animation-duration: 0.3s;
 
@@ -158,5 +151,7 @@ export default {
   left: 25px;
   top: 30px;
   border-radius: 2.5px;
+
 }
+
 </style>
