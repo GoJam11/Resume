@@ -33,7 +33,7 @@ const i18n = new VueI18n({
             s: '的简历',
             intention: {
                 t: '求职意向',
-                c: '前端实习'
+                c: 'Web前端工程师'
             },
             email: '邮箱：',
             tel: '电话：',
@@ -46,7 +46,7 @@ const i18n = new VueI18n({
 
             intention: {
                 t: 'Intention',
-                c: 'Front-end internship'
+                c: 'Software Develop Engineer'
             },
             email: 'E-mail: ',
             tel: "Tel: (+86)",

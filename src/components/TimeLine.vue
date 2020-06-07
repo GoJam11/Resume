@@ -3,13 +3,15 @@
     <div class="project">
       <div class="pj-title">
         <slot name="title"></slot>
+        <div style="height:4px;background:#f3f3f3;"></div>
       </div>
 
       <div class="pj-content">
         <slot name="content"></slot>
       </div>
+      <!--
       <div class="before-content" :style="style2"></div>
-      <div class="before-title" :style="style"></div>
+      <div class="before-title" :style="style"></div>-->
     </div>
   </div>
 </template>
@@ -23,7 +25,7 @@ export default {
       switch (this.theme) {
         case "light":
           return {
-            background: "#2faffe"
+            background: "rgb(64, 184, 131)"
           };
           break;
         case "blue":
@@ -37,7 +39,7 @@ export default {
       switch (this.theme) {
         case "light":
           return {
-            background: "rgb(138, 216, 244)"
+            background: "rgb(64, 184, 131)"
           };
           break;
         case "blue":
@@ -52,12 +54,14 @@ export default {
 </script>
 <style lang="stylus" scoped>
 .detail-project {
+  margin-bottom 30px
   &:last-child {
     .project {
       .pj-content:before {
         height: calc(100% + 35px);
       }
     }
+    margin-bottom 0px
   }
 
   &:hover {
@@ -77,9 +81,10 @@ export default {
 
   .project {
     flex-direction: column;
+    width:100%
 
     .pj-title {
-      margin-left: 45px;
+      margin-left: 30px;
       position: relative;
 
       h2 {
@@ -93,9 +98,10 @@ export default {
     }
 
     .pj-content {
-      margin-left: 45px;
+      margin-left: 30px;
       position: relative;
-      color: #676767;
+      color: #3d3d50;
+      line-height 23px
       p{
         display:block!important
       }

@@ -22,7 +22,7 @@ export default {
       switch (this.theme) {
         case "light":
           return {
-            color: "#2faffe"
+            color: "rgb(64, 184, 131)"
           };
           break;
         case "blue":

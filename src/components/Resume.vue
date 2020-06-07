@@ -144,7 +144,8 @@
               <div style="flex-direction:column">
                 <TimeLine :theme="currentTheme" class="hover-img">
                   <template v-slot:title>
-                    <h2 class="project-item-title">论坛后台管理系统 2019.7</h2>
+                    <p class="project-time">2019.7</p>
+                    <h2 class="project-item-title">论坛后台管理系统</h2>
                   </template>
                   <template v-slot:content>
                     <p style="font-weight:300;margin-top:6px">
@@ -170,10 +171,11 @@
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2 class="project-item-title">二手市场小程序 2018.9</h2>
+                    <p class="project-time">2018.9</p>
+                    <h2 class="project-item-title">二手市场小程序</h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:200">
+                    <p style="font-weight:300;margin-top:6px">
                       未上线，功能完善的二手交易平台，我负责使用组件化的方式开发小程序前端，与Spring后端进行交互。
                       <br />微信小程序开发主要参考官方文档，从这个项目中了解了小程序开发与web网页的区别，比如原生组件和web组件组合，以及不标准的API和不支持DOM操作。
                     </p>
@@ -202,19 +204,19 @@
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2 class="project-item-title">
-                      简历Resume
+                      简历
                       <a href="https://github.com/GoJam11/Resume/">
                         <i class="fa fa-github" style="margin-left:.5em"></i>
                       </a>
                     </h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:200">
+                    <p style="font-weight:300;margin-top:6px">
                       参考前端大牛的简历，简洁优雅。简历是一个由vue-cli创建的项目，使用Stylus预处理器编辑样式，包括时间轴等多个组件，支持切换主题和语言。兼容iPad与桌面端的Chrome、Safari等现代浏览器。<!--<a style="display:inline;text-decoration:none;color:#676767" href="https://resume.local.guohere.com">(https://resume.local.guohere.com)</a>-->
                     </p>
                   </template>
                 </TimeLine>
-                <TimeLine :theme="currentTheme">
+              <!--  <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2 class="project-item-title">
                       Vue博客
@@ -224,61 +226,62 @@
                     </h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:200">
+                    <p style="font-weight:300;margin-top:6px">
                       以Wordpress作为<b>后端</b>，利用RESTful接口获取文章数据并展示。项目中使用了axios、element
                       ui，通过正则和history
                       api路由，先后以JSONP、服务器代理、设置CORS头的形式解决跨域问题，同时允许在不同分辨率下呈现不同的排版效果。
                     </p>
                   </template>
-                </TimeLine>
+                </TimeLine>-->
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2 class="project-item-title" style="font-size:23px">
-                      其他
+                    <h2 class="project-item-title" >
+                      更多
                       <!--<a href="https://github.com/GoJam11/el-wordpress-blog">
                         <i class="fa fa-github" style="margin-left:.5em"></i>
                       </a>-->
                     </h2>
                   </template>
                   <template v-slot:content>
-                    <p style="display:flex!important">
+                    <p style="display:flex!important;margin-top:6px;font-weight:300;">
                       <a
                         class="a-hl"
                         style="margin-right:12px"
                         href="https://demo.guohere.com/backgammon/"
                         target="_blank"
-                        >五子棋AI</a
+                        >·五子棋AI：对棋局估分</a
                       >
+                      
                       <a
                         class="a-hl"
                         style="margin-right:12px"
                         href="https://manual.local.guohere.com/"
                         target="_blank"
-                        >前端笔记</a
+                        >·前端笔记：学习后整理的文档</a
                       >
                       <a
                         class="a-hl"
                         style="margin-right:12px"
                         href="https://demo.guohere.com/chat/"
                         target="_blank"
-                        >聊天（调用API）</a
+                        >·聊天（调用API实现）</a
                       >
                       <a
                         class="a-hl"
                         style="margin-right:12px"
                         href="http://demo.guohere.com/blocks/"
                         target="_blank"
-                        >拼图</a
+                        >·拼图</a
                       >
                       <a
                         class="a-hl"
                         style="margin-right:12px"
                         href="https://note.guohere.com/"
                         target="_blank"
-                        >留言板（支持QQ登陆）</a
+                        >·留言板（支持QQ登陆）</a
                       >
                     </p>
-                    <!--<div>
+                    <div>
                       <img
                         src="../assets/five.png"
                         height="120px"
@@ -309,7 +312,7 @@
                         
                         style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
                       />
-                    </div>-->
+                    </div>
                   </template>
                 </TimeLine>
               </div>
@@ -326,20 +329,20 @@
               <div class="detail" style="flex-direction:column">
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2>HTML/CSS</h2>
+                    <h2 class="project-item-title" style="margin-top:15px">HTML/CSS</h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:200">
+                    <p style="font-weight:200;margin-bottom:-30px;margin-top:6px">
                       熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。
                     </p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2>JavaScript与Vue.JS</h2>
+                    <h2 class="project-item-title" style="margin-top:15px">JavaScript与Vue.JS</h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:200">
+                    <p style="font-weight:200;margin-bottom:-30px;margin-top:6px">
                       能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态，能够在文档的协助下配置环境。也使用JS工具库（如Lodash）、JQuery、CSS
                       in JS相关库、等库与包管理工具。
                     </p>
@@ -347,20 +350,20 @@
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2>Webpack、Git、NPM等工具</h2>
+                    <h2 class="project-item-title" style="margin-top:15px">Webpack、Git、NPM等工具</h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:200">
+                    <p style="font-weight:300;margin-bottom:-30px;margin-top:6px">
                       熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码。
                     </p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2>其他</h2>
+                    <h2 class="project-item-title" style="margin-top:15px">其他</h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:200">
+                    <p style="font-weight:300;margin-bottom:10px;margin-top:6px">
                       有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置（LAMP和LNMP）与Docker等，会使用Vim等命令行工具。会简单使用C++、Python，用Python爬取过数据。
                     </p>
                   </template>
@@ -369,20 +372,9 @@
             </template>
           </mySection>
 
-          <div style="margin:15px;justify-content:center">
-            <a href="https://resume.guohere.com">
-              <img
-                style="width:136px;height:20px;margin-right:20px"
-                src="https://api.netlify.com/api/v1/badges/940f63c0-a6cd-4c48-925a-712150fc826b/deploy-status"
-              />
-            </a>
-            <iframe
-              src="https://ghbtns.com/github-btn.html?user=GoJam11&repo=Resume&type=star&count=true"
-              frameborder="0"
-              scrolling="0"
-              width="170px"
-              height="20px"
-            ></iframe>
+          <div style="margin:15px;justify-content:center;align-items:center">
+    
+            <span style="font-weight:500;font-size:22px;">made with<span style="color:#40b883;margin-left:6px">vue.js</span></span>
           </div>
         </div>
       </div>
@@ -450,7 +442,7 @@ export default {
       }
     },
     scroll(e) {
-      console.log(e);
+     
     },
     changeTheme() {
       if (this.currentTheme == "light") {
@@ -460,13 +452,13 @@ export default {
         this.style.header.background = "#6195FF";
       } else {
         this.currentTheme = "light";
-        this.cswitch.background = "#2faffe";
+        this.cswitch.background = "rgb(64, 184, 131)";
 
         this.style.header.background =
-          "linear-gradient(180deg, #5ad6ff, #009dff)";
+          "rgb(64, 184, 131)";
       }
 
-      console.log("clicked");
+     
     },
   },
   created() {
@@ -611,6 +603,7 @@ progress-bg = #017eff7d;
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      font-weight:400
 
       // flex-wrap: wrap;
       p {
@@ -647,7 +640,7 @@ progress-bg = #017eff7d;
         flex-basis: 60%;
         flex-direction: column;
         justify-content: center;
-        //font-weight:300
+        font-weight:300
 
         .intro {
           text-indent: 2em;
@@ -660,6 +653,7 @@ progress-bg = #017eff7d;
         font-size: 16px;
         flex-basis: 40%;
         flex-direction: column;
+        font-weight:300
       }
     }
   }
@@ -770,6 +764,10 @@ b {
   color: #2f2f2f;
   font-size: 18px;
   font-weight: 500;
-
+  margin-top:0;
+  margin-bottom:6px!important;
+}
+.project-time{
+  color:gray;font-weight:300;font-size:13px;
 }
 </style>
