@@ -31,7 +31,7 @@
                 我是一个由衷热爱前端与交互的前端er，梦想是成为一名前端工程师。
               </p>
               <p class="intro">
-                目前正在寻找前端工程师实习岗位的工作机会，希望借此为贵公司献上我的一点绵薄之力。
+                目前正在寻找前端工程师岗位的工作机会，希望借此为贵公司献上我的一点绵薄之力。
               </p>
             </div>
             <div class="right-r">
@@ -374,7 +374,7 @@
 
           <div style="margin:15px;justify-content:center;align-items:center">
     
-            <span style="font-weight:500;font-size:22px;">made with<span style="color:#40b883;margin-left:6px">vue.js</span></span>
+            <span style="font-weight:500;font-size:22px;">made with<span style="color:#40b883;margin-left:6px;margin-right:6px">vue.js</span></span>
           </div>
         </div>
       </div>
@@ -485,7 +485,7 @@ progress-color = #017eff; // #1caef7
 progress-bg = #017eff7d;
 
 .container {
-  position: absolute;
+
   //overflow: scroll;
   width: 100%;
   //height: calc(100% - 44px);
