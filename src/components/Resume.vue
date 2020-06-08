@@ -21,38 +21,48 @@
       </div>
       <div class="card">
         <header :style="style.header" class="header">
-          <div class="left">
-            <p>{{ $t("name") }}</p>
-            <p class="s">{{ $t("s") }}</p>
-          </div>
-          <div class="right">
-            <div class="right-l">
-              <p class="intro">
-                我是一个由衷热爱前端与交互的前端er，梦想是成为一名前端工程师。
-              </p>
-              <p class="intro">
-                目前正在寻找前端工程师岗位的工作机会，希望借此为贵公司献上我的一点绵薄之力。
-              </p>
+          <div
+            class="left"
+            style="flex-basis:72%;align-items:flex-start;margin-left:45px;justify-content:flex-start;margin-top:60px"
+          >
+            <div>
+              {{ $t("name")
+              }}<span
+                style="font-weight:300;font-size:22px;align-items:flex-end;margin-left:10px;margin-bottom:6px"
+                >Web前端工程师</span
+              >
             </div>
-            <div class="right-r">
-              <p class="section">
-                <i class="fa fa-bookmark fa-fw"></i>
-                {{ $t("intention.t") }}
+            <!--<p style="font-size:22px;font-weight:300">Web前端工程师</p>-->
+            <div
+              class="right-l"
+              style="font-size:16px;font-weight:300;width:400px;flex-direction:column"
+            >
+              <p class="intro">
+                我是一个由衷热爱前端与交互的前端er，梦想是成为一名前端工程师。目前正在寻找前端工程师岗位的工作机会，希望借此为贵公司献上我的一点绵薄之力。
               </p>
-              <p>{{ $t("intention.c") }}</p>
+              <p class="intro"></p>
+            </div>
+          </div>
+          <div class="right" style="flex-basis:28%">
+            <div class="right-r" style="flex-basis:100%">
               <p class="section">
-                <i class="fa fa-bookmark fa-fw"></i>
+                <!--<i class="fa fa-bookmark fa-fw"></i>
+                {{ $t("intention.c") }}-->
+              </p>
+              <!--<p>{{ $t("intention.c") }}</p>-->
+              <p class="section" style="margin-top:45px;font-size:26px;margin-bottom:-3px">
+                <!--<i class="fa fa-bookmark fa-fw"></i>-->
                 {{ $t("contact") }}
               </p>
-              <p>
+              <p style="font-size:16px;margin-bottom:-5px">
                 <i class="fa fa-envelope fa-fw"></i>
                 {{ $t("email") }}iloveos@live.com
               </p>
-              <p>
+              <p style="font-size:16px;margin-bottom:-5px">
                 <i class="fa fa-phone fa-fw"></i>
                 {{ $t("tel") }}18651403158
               </p>
-              <p>
+              <p style="font-size:16px;margin-bottom:-5px">
                 <i class="fa fa-wechat fa-fw"></i>
                 {{ $t("wechat") }}iloveos
               </p>
@@ -77,7 +87,7 @@
               </p>
               <p>
                 <span class="basic-info-item-title">英语水平</span>
-                <span style="font-weight:300">CET-6 530</span>
+                <span style="font-weight:300">CET-6</span>
               </p>
               <p>
                 <span class="basic-info-item-title">博客地址</span>
@@ -133,6 +143,36 @@
                   </template>
                 </Progress>
               </div>-->
+            </template>
+          </mySection>
+          <mySection :theme="currentTheme">
+            <template v-slot:title>
+              <i class="fa fa-caret-right"></i
+              ><span class="section-title">实习经历</span>
+            </template>
+            <template v-slot:detail>
+              <TimeLine :theme="currentTheme" class="hover-img">
+                <template v-slot:title>
+                  <p class="project-time">2020.7 -  暑期</p>
+                  <h2 class="project-item-title">腾讯 TEG（深圳）</h2>
+                </template>
+                <template v-slot:content>
+                  <p style="font-weight:300;margin-top:6px;margin-bottom:-20px">
+                    尚未开始。
+                  </p>
+                </template>
+              </TimeLine>
+              <TimeLine :theme="currentTheme" class="hover-img">
+                <template v-slot:title>
+                  <p class="project-time">2020.4 - 2020.6 暑期</p>
+                  <h2 class="project-item-title">美团点评 到店（上海）</h2>
+                </template>
+                <template v-slot:content>
+                  <p style="font-weight:300;margin-top:6px">
+                    参与实现App端团购管理模块前端需求，包括添加功能、界面改版、BUG修复、部分代码重构。我负责的模块由RN编写，与Native结合紧密。这段实习经历不仅让我有机会学习React、RN、Redux，还熟悉了如何与产品、后端协调，以及应该遵循什么样的Git协作规范。
+                  </p>
+                </template>
+              </TimeLine>
             </template>
           </mySection>
           <mySection :theme="currentTheme">
@@ -205,9 +245,9 @@
                   <template v-slot:title>
                     <h2 class="project-item-title">
                       简历
-                      <a href="https://github.com/GoJam11/Resume/">
+                      <!--<a href="https://github.com/GoJam11/Resume/">
                         <i class="fa fa-github" style="margin-left:.5em"></i>
-                      </a>
+                      </a>-->
                     </h2>
                   </template>
                   <template v-slot:content>
@@ -216,7 +256,7 @@
                     </p>
                   </template>
                 </TimeLine>
-              <!--  <TimeLine :theme="currentTheme">
+                <!--  <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2 class="project-item-title">
                       Vue博客
@@ -235,7 +275,7 @@
                 </TimeLine>-->
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2 class="project-item-title" >
+                    <h2 class="project-item-title">
                       更多
                       <!--<a href="https://github.com/GoJam11/el-wordpress-blog">
                         <i class="fa fa-github" style="margin-left:.5em"></i>
@@ -243,7 +283,9 @@
                     </h2>
                   </template>
                   <template v-slot:content>
-                    <p style="display:flex!important;margin-top:6px;font-weight:300;">
+                    <p
+                      style="display:flex!important;margin-top:6px;font-weight:300;"
+                    >
                       <a
                         class="a-hl"
                         style="margin-right:12px"
@@ -251,7 +293,7 @@
                         target="_blank"
                         >·五子棋AI：对棋局估分</a
                       >
-                      
+
                       <a
                         class="a-hl"
                         style="margin-right:12px"
@@ -285,31 +327,26 @@
                       <img
                         src="../assets/five.png"
                         height="120px"
-                        
                         style="border-radius:5px;margin:5px;margin-left:0;border:solid #9f9ff5 1px"
                       />
                       <img
                         src="../assets/md.png"
                         height="120px"
-                        
                         style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
                       />
                       <img
                         src="../assets/chat.png"
                         height="120px"
-                        
                         style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
                       />
                       <img
                         src="../assets/blocks.png"
                         height="120px"
-                        
                         style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
                       />
                       <img
                         src="../assets/note.png"
                         height="120px"
-                        
                         style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
                       />
                     </div>
@@ -324,46 +361,74 @@
               ><span class="section-title">技能</span>
             </template>
             <template v-slot:detail>
-
-
               <div class="detail" style="flex-direction:column">
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2 class="project-item-title" style="margin-top:15px">HTML/CSS</h2>
+                    <h2 class="project-item-title" style="margin-top:15px">
+                      HTML/CSS
+                    </h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:200;margin-bottom:-30px;margin-top:6px">
-                      熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。
+                    <p
+                      style="font-weight:200;margin-bottom:-30px;margin-top:6px"
+                    >
+                      熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。常用Flex布局，CSS动画，拥有准确复现设计稿的能力。
                     </p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2 class="project-item-title" style="margin-top:15px">JavaScript与Vue.JS</h2>
+                    <h2 class="project-item-title" style="margin-top:15px">
+                      JavaScript/ESNext
+                    </h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:200;margin-bottom:-30px;margin-top:6px">
-                      能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态，能够在文档的协助下配置环境。也使用JS工具库（如Lodash）、JQuery、CSS
-                      in JS相关库、等库与包管理工具。
+                    <p
+                      style="font-weight:200;margin-bottom:-30px;margin-top:6px"
+                    >
+                      熟悉原生JS中数组、字符串、对象常用方法，知晓常见设计模式，理解JS的异步机制、原型机制与this指向。
                     </p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2 class="project-item-title" style="margin-top:15px">Webpack、Git、NPM等工具</h2>
+                    <h2 class="project-item-title" style="margin-top:15px">
+                      Vue.JS、React等框架
+                    </h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:300;margin-bottom:-30px;margin-top:6px">
+                    <p
+                      style="font-weight:200;margin-bottom:-30px;margin-top:6px"
+                    >
+                      能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态。了解React组件书写与Context、Hooks等API，使用过Redux与HOC。也使用Lodash、JQuery、CSS
+                      in JS相关库。
+                    </p>
+                  </template>
+                </TimeLine>
+                <TimeLine :theme="currentTheme">
+                  <template v-slot:title>
+                    <h2 class="project-item-title" style="margin-top:15px">
+                      Webpack、Git、NPM等工具
+                    </h2>
+                  </template>
+                  <template v-slot:content>
+                    <p
+                      style="font-weight:300;margin-bottom:-30px;margin-top:6px"
+                    >
                       熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码。
                     </p>
                   </template>
                 </TimeLine>
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
-                    <h2 class="project-item-title" style="margin-top:15px">其他</h2>
+                    <h2 class="project-item-title" style="margin-top:15px">
+                      其他
+                    </h2>
                   </template>
                   <template v-slot:content>
-                    <p style="font-weight:300;margin-bottom:10px;margin-top:6px">
+                    <p
+                      style="font-weight:300;margin-bottom:10px;margin-top:6px"
+                    >
                       有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置（LAMP和LNMP）与Docker等，会使用Vim等命令行工具。会简单使用C++、Python，用Python爬取过数据。
                     </p>
                   </template>
@@ -373,13 +438,17 @@
           </mySection>
 
           <div style="margin:15px;justify-content:center;align-items:center">
-    
-            <span style="font-weight:500;font-size:22px;">made with<span style="color:#40b883;margin-left:6px;margin-right:6px">vue.js</span></span>
+            <span style="font-weight:500;font-size:22px;"
+              >made with<span
+                style="color:#40b883;margin-left:6px;margin-right:6px"
+                >vue.js</span
+              ></span
+            >
           </div>
         </div>
       </div>
     </div>
-    <div
+    <!--<div
       ref="switch"
       v-on:mousemove="move"
       v-on:mouseleave="leave"
@@ -387,7 +456,7 @@
     >
       <span style="pointer-events:none">中文</span>
       <span style="color:white;pointer-events:none">EN</span>
-    </div>
+    </div>-->
     <div :style="cswitch" class="color-switch" v-on:click="changeTheme"></div>
   </div>
 </template>
@@ -396,12 +465,14 @@
 import { setTimeout } from "timers";
 import mySection from "./Section";
 import TimeLine from "./TimeLine";
-import Progress from "./Progress";
+//import Progress from "./Progress";
+import MyHeader from "./ResumeBlock/Header";
 export default {
   components: {
     mySection,
     TimeLine,
-    Progress,
+    //Progress,
+    MyHeader,
   },
   data: () => {
     return {
@@ -441,9 +512,7 @@ export default {
           "linear-gradient(90deg, black " + 100 + "%, #ffffff " + 100 + "%)";
       }
     },
-    scroll(e) {
-     
-    },
+    scroll(e) {},
     changeTheme() {
       if (this.currentTheme == "light") {
         this.currentTheme = "blue";
@@ -454,11 +523,8 @@ export default {
         this.currentTheme = "light";
         this.cswitch.background = "rgb(64, 184, 131)";
 
-        this.style.header.background =
-          "rgb(64, 184, 131)";
+        this.style.header.background = "rgb(64, 184, 131)";
       }
-
-     
     },
   },
   created() {
@@ -520,7 +586,7 @@ progress-bg = #017eff7d;
     bottom: 0px;
     background: white;
     animation: loading;
-    animation-duration: 3s;
+    animation-duration: 1s;
     animation-fill-mode: forwards;
     z-index: 2;
 
@@ -764,10 +830,12 @@ b {
   color: #2f2f2f;
   font-size: 18px;
   font-weight: 500;
-  margin-top:0;
-  margin-bottom:6px!important;
+  margin-top: 0;
+  margin-bottom: 6px !important;
 }
-.project-time{
-  color:gray;font-weight:300;font-size:13px;
+.project-time {
+  color: gray;
+  font-weight: 300;
+  font-size: 13px;
 }
 </style>
