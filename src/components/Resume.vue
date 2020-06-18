@@ -72,9 +72,7 @@
         <div class="body">
           <!--section-->
           <mySection :theme="currentTheme">
-            <template v-slot:title>
-              <i class="fa fa-caret-right"></i
-              ><span class="section-title">基本信息</span>
+            <template v-slot:title>基本信息
             </template>
             <template v-slot:detail>
               <p>
@@ -108,47 +106,11 @@
                   >github.com/GoJam11</a
                 >
               </p>
-              <!-- <p>
-                 <span style="font-weight:500;margin-right:10px">主要课程：</span>
-              </p>
-              <div class="detail">
-                <Progress :theme="currentTheme" percent="60%">
-                  <template v-slot:name>
-                    <p>计算机网络</p>
-                  </template>
-                </Progress>
-                <Progress :theme="currentTheme" percent="60%">
-                  <template v-slot:name>
-                    <p>操作系统</p>
-                  </template>
-                </Progress>
-                <Progress :theme="currentTheme" percent="60%">
-                  <template v-slot:name>
-                    <p>数据结构</p>
-                  </template>
-                </Progress>
-                <Progress :theme="currentTheme" percent="50%">
-                  <template v-slot:name>
-                    <p>数据库应用</p>
-                  </template>
-                </Progress>
-                <Progress :theme="currentTheme" percent="50%">
-                  <template v-slot:name>
-                    <p>计算机组成原理</p>
-                  </template>
-                </Progress>
-                <Progress :theme="currentTheme" percent="50%">
-                  <template v-slot:name>
-                    <p>计算机安全</p>
-                  </template>
-                </Progress>
-              </div>-->
             </template>
           </mySection>
           <mySection :theme="currentTheme">
             <template v-slot:title>
-              <i class="fa fa-caret-right"></i
-              ><span class="section-title">实习经历</span>
+              实习经历
             </template>
             <template v-slot:detail>
               <TimeLine :theme="currentTheme" class="hover-img">
@@ -158,7 +120,7 @@
                 </template>
                 <template v-slot:content>
                   <p style="font-weight:300;margin-top:6px;margin-bottom:-20px">
-                    尚未开始。
+                    研发管理部。
                   </p>
                 </template>
               </TimeLine>
@@ -177,8 +139,7 @@
           </mySection>
           <mySection :theme="currentTheme">
             <template v-slot:title>
-              <i class="fa fa-caret-right"></i
-              ><span class="section-title">项目经验</span>
+              项目经验
             </template>
             <template v-slot:detail>
               <div style="flex-direction:column">
@@ -256,30 +217,10 @@
                     </p>
                   </template>
                 </TimeLine>
-                <!--  <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2 class="project-item-title">
-                      Vue博客
-                      <a href="https://github.com/GoJam11/el-wordpress-blog">
-                        <i class="fa fa-github" style="margin-left:.5em"></i>
-                      </a>
-                    </h2>
-                  </template>
-                  <template v-slot:content>
-                    <p style="font-weight:300;margin-top:6px">
-                      以Wordpress作为<b>后端</b>，利用RESTful接口获取文章数据并展示。项目中使用了axios、element
-                      ui，通过正则和history
-                      api路由，先后以JSONP、服务器代理、设置CORS头的形式解决跨域问题，同时允许在不同分辨率下呈现不同的排版效果。
-                    </p>
-                  </template>
-                </TimeLine>-->
                 <TimeLine :theme="currentTheme">
                   <template v-slot:title>
                     <h2 class="project-item-title">
                       更多
-                      <!--<a href="https://github.com/GoJam11/el-wordpress-blog">
-                        <i class="fa fa-github" style="margin-left:.5em"></i>
-                      </a>-->
                     </h2>
                   </template>
                   <template v-slot:content>
@@ -297,7 +238,7 @@
                       <a
                         class="a-hl"
                         style="margin-right:12px"
-                        href="https://manual.local.guohere.com/"
+                        href="https://fe.guohere.com/"
                         target="_blank"
                         >·前端笔记：学习后整理的文档</a
                       >
@@ -357,8 +298,7 @@
           </mySection>
           <mySection :theme="currentTheme">
             <template v-slot:title>
-              <i class="fa fa-caret-right"></i
-              ><span class="section-title">技能</span>
+             技能
             </template>
             <template v-slot:detail>
               <div class="detail" style="flex-direction:column">
@@ -580,7 +520,7 @@ progress-bg = #017eff7d;
   }
 
   .loading {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     bottom: 0px;
@@ -790,21 +730,9 @@ b {
   background: #2faffe;
 }
 
-.detail {
-  width: 100%;
-  justify-content: flex-start;
-  overflow: hidden;
-  & > div {
-    flex-basis: 1;
-  }
-}
 
-.hover-img:hover::before {
-  //content:'img';
-  position: relative;
 
-  //left:45px;
-}
+
 
 .a-hl:visited {
   color: #676767;
@@ -820,12 +748,7 @@ b {
   margin-right: 10px;
   color: #424242;
 }
-.section-title {
-  font-size: 23px;
-  font-weight: 500;
-  margin-left: 10px;
-  color: #2f2f2f;
-}
+
 .project-item-title {
   color: #2f2f2f;
   font-size: 18px;
@@ -838,4 +761,7 @@ b {
   font-weight: 300;
   font-size: 13px;
 }
+a {
+        color: black;
+      }
 </style>
