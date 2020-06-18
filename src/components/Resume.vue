@@ -154,7 +154,7 @@
               <TimeLine :theme="currentTheme" class="hover-img">
                 <template v-slot:title>
                   <p class="project-time">2020.7 -  暑期</p>
-                  <h2 class="project-item-title">腾讯 TEG（深圳）</h2>
+                  <h2 class="project-item-title">腾讯 TEG</h2>
                 </template>
                 <template v-slot:content>
                   <p style="font-weight:300;margin-top:6px;margin-bottom:-20px">
@@ -165,7 +165,7 @@
               <TimeLine :theme="currentTheme" class="hover-img">
                 <template v-slot:title>
                   <p class="project-time">2020.4 - 2020.6 暑期</p>
-                  <h2 class="project-item-title">美团点评 到店（上海）</h2>
+                  <h2 class="project-item-title">美团点评 到店</h2>
                 </template>
                 <template v-slot:content>
                   <p style="font-weight:300;margin-top:6px">
