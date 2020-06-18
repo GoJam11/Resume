@@ -1,12 +1,5 @@
 <template>
   <div>
-   <!-- <header class="header">
-      <router-link to="/">Resume</router-link>
-      <router-link to="/md" style="pointer-events:none;color:#80808052">MarkDown</router-link>
-      <router-link to="/r0" style="pointer-events:none;color:#80808052">R0</router-link>
-      <router-link to="/r1" style="pointer-events:none;color:#80808052">R1</router-link>
-    </header>-->
-
     <router-view></router-view>
   </div>
 </template>

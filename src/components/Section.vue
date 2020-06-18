@@ -3,7 +3,10 @@
     padding: 0 5px;margin-bottom:0px">
     <div class="section">
       <p class="title" :style="style">
-        <slot name="title"></slot>
+        <i class="fa fa-caret-right"></i>
+        <span class="section-title">
+          <slot name="title"></slot>
+        </span>
       </p>
       <div class="detail">
         <slot name="detail"></slot>
@@ -51,23 +54,13 @@ progress-bg = #8ad8f4;
   .title {
     font-size: 22px;
     color: primary-color;
-    //border-bottom: 1px solid primary-color;
 
     i {
       align-items: center;
     }
-
-    &:hover {
-      i {
-        // transition .5s
-        // transform rotateZ(270deg) translate(7px,0px)
-      }
-    }
   }
 
   .detail {
-    flex-direction: row;
-    justify-content: flex-start;
     flex-wrap: wrap;
     font-size: 15px;
 
@@ -75,77 +68,7 @@ progress-bg = #8ad8f4;
       padding-left: 30px;
       flex-basis: 100%;
 
-      a {
-        color: black;
-      }
-    }
-
-    .content {
-      padding-left: 0px;
-      font-size: 15px;
-
-      ul {
-        display: block;
-
-        li {
-          display: list-item;
-          margin-bottom: 1em;
-          padding-right: 60px;
-        }
-
-        li:last-child {
-          margin-bottom: 0em;
-        }
-      }
-    }
-
-    .progress-detail {
-      align-items: center;
-      justify-content: center;
-      margin-top: 0.8em;
-      flex-basis: 33.33%;
-
-      p {
-        align-items: center;
-        margin: 0;
-        width: 40px;
-        white-space: nowrap;
-        font-weight: 500;
-
-        &.long {
-          width: 90px;
-        }
-      }
-
-      .progress {
-        transition: 0.3s;
-
-        &:hover {
-          transform: scale(1.2);
-        }
-
-        width: 120px;
-        height: 14px;
-        border-radius: 7px;
-        margin-left: 1em;
-        box-shadow: 0 0 3px 0 #8bc0ff;
-
-        &.five {
-          background: linear-gradient(to right, progress-color 50%, progress-bg 0%);
-        }
-
-        &.seven {
-          background: linear-gradient(to right, progress-color 70%, progress-bg 0%);
-        }
-
-        &.six {
-          background: linear-gradient(to right, progress-color 60%, progress-bg 0%);
-        }
-
-        &.three {
-          background: linear-gradient(to right, progress-color 30%, progress-bg 0%);
-        }
-      }
+      
     }
   }
 }
@@ -157,5 +80,12 @@ progress-bg = #8ad8f4;
 p {
   margin-top: 0.8em;
   margin-bottom: 0;
+}
+
+.section-title {
+  font-size: 23px;
+  font-weight: 500;
+  margin-left: 10px;
+  color: #2f2f2f;
 }
 </style>
