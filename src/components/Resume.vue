@@ -1,5 +1,5 @@
 <template>
-  <div class="global" v-on:mousewheel="scroll">
+  <div class="global" >
     <div class="container">
       <div class="loading" v-if="loading">
         <div class="circle lg">
@@ -378,29 +378,6 @@ export default {
     };
   },
   methods: {
-    move(e) {
-      e.srcElement.style.background =
-        "linear-gradient(90deg, black " +
-        e.offsetX +
-        "%, #ffffff " +
-        e.offsetX +
-        "%)";
-
-      if (e.offsetX <= 50) {
-        this.$i18n.locale = "cn";
-      } else {
-        this.$i18n.locale = "en";
-      }
-    },
-    leave(e) {
-      if (e.offsetX <= 0) {
-        e.srcElement.style.background =
-          "linear-gradient(90deg, black " + 0 + "%, #ffffff " + 0 + "%)";
-      } else if (e.offsetX >= 100) {
-        e.srcElement.style.background =
-          "linear-gradient(90deg, black " + 100 + "%, #ffffff " + 100 + "%)";
-      }
-    },
     changeTheme() {
       if (this.currentTheme == "light") {
         this.currentTheme = "blue";
@@ -419,13 +396,9 @@ export default {
     let that = this;
     setTimeout(() => {
       that.loading = false;
-      //console.log("allow scroll");
     }, 2000);
   },
   mounted() {
-    /*if (Math.random() > 0.5) {
-      this.changeTheme();
-    }*/
     this.changeTheme();
   }
 };
@@ -445,11 +418,7 @@ progress-bg = #017eff7d;
   min-height: 100%;
   justify-content: center;
   background: rgba(128, 128, 128, 0.1);
-  animation-name: overflow;
-  animation-duration: 3s;
 
-  &:hover {
-  }
 
   .mobile-loading {
     display: none;
@@ -500,15 +469,7 @@ progress-bg = #017eff7d;
     }
   }
 
-  @keyframes overflow {
-    0% {
-      overflow: hidden;
-    }
 
-    100% {
-      overflow: scroll;
-    }
-  }
 
   @keyframes lg {
     100% {
