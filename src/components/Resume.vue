@@ -1,439 +1,275 @@
 <template>
-  <div class="global" >
-    <div class="container">
-      <div class="loading" v-if="loading">
-        <div class="circle lg">
-          <div class="circle sm"></div>
-        </div>
+  <div class="container">
+    <div class="loading">
+      <div class="circle lg">
+        <div class="circle sm"></div>
       </div>
-      <div class="mobile-loading">
-        <p style="position:absolute;top:50px;padding:0px 40px;font-size:24px;display:block">
-          请使用电脑访问，或最大化浏览器窗口。
-          <br style="display:inline" />移动设备请访问
-          <a style="display:inline" href="https://resume.local.guohere.com/react">交互版版简历</a>。
-        </p>
+    </div>
+
+    <div class="card">
+      <div @click="changeTheme" style="cursor:">
+        <Header :backgroundColor="currentColor" :basicInfo="resume.basicInfo" @click="changeTheme"></Header>
       </div>
-      <div class="card">
-        <header :style="style.header" class="header">
-          <div
-            class="left"
-            style="flex-basis:72%;align-items:flex-start;margin-left:45px;justify-content:flex-start;margin-top:60px"
-          >
-            <div>
-              {{ $t("name")
-              }}
-              <span
-                style="font-weight:300;font-size:22px;align-items:flex-end;margin-left:10px;margin-bottom:6px"
-              >Web前端工程师</span>
-            </div>
-            <!--<p style="font-size:22px;font-weight:300">Web前端工程师</p>-->
-            <div
-              class="right-l"
-              style="font-size:16px;font-weight:300;width:400px;flex-direction:column"
+      <div class="body">
+        <!--section-->
+        <Section :theme="currentColor">
+          <template v-slot:title>基本信息</template>
+          <template v-slot:detail>
+            <p v-for="item in resume.basicInfo.items" :key="item.title">
+              <span class="basic-info-item-title">{{item.title}}</span>
+              <a
+                v-if="item.link"
+                :href="item.link"
+                target="_blank"
+                style="font-weight:300;text-decoration:none;cursor:pointer"
+              >{{item.content}}</a>
+              <span v-else style="font-weight:300">{{item.content}}</span>
+            </p>
+          </template>
+        </Section>
+        <Section :theme="currentColor" v-for="module in resume.module" :key="module.moduleName">
+          <template v-slot:title>{{module.moduleName}}</template>
+          <template v-slot:detail>
+            <TimeLine
+              v-for="block in module.blocks"
+              :key="block.title"
+              class="hover-img"
+              style="margin-bottom:0px;"
             >
-              <p
-                class="intro"
-              >我是一个由衷热爱前端与交互的前端er，梦想是成为一名前端工程师。目前正在寻找前端工程师岗位的工作机会，希望借此为贵公司献上我的一点绵薄之力。</p>
-              <p class="intro"></p>
-            </div>
-          </div>
-          <div class="right" style="flex-basis:28%">
-            <div class="right-r" style="flex-basis:100%">
-              <p class="section">
-                <!--<i class="fa fa-bookmark fa-fw"></i>
-                {{ $t("intention.c") }}-->
-              </p>
-              <!--<p>{{ $t("intention.c") }}</p>-->
-              <p class="section" style="margin-top:45px;font-size:26px;margin-bottom:-3px">
-                <!--<i class="fa fa-bookmark fa-fw"></i>-->
-                {{ $t("contact") }}
-              </p>
-              <p style="font-size:16px;margin-bottom:-5px">
-                <i class="fa fa-envelope fa-fw"></i>
-                {{ $t("email") }}iloveos@live.com
-              </p>
-              <p style="font-size:16px;margin-bottom:-5px">
-                <i class="fa fa-phone fa-fw"></i>
-                {{ $t("tel") }}18651403158
-              </p>
-              <p style="font-size:16px;margin-bottom:-5px">
-                <i class="fa fa-wechat fa-fw"></i>
-                {{ $t("wechat") }}iloveos
-              </p>
-            </div>
-          </div>
-        </header>
-        <div class="body">
-          <!--section-->
-          <mySection :theme="currentTheme">
-            <template v-slot:title>基本信息</template>
-            <template v-slot:detail>
-              <p>
-                <span class="basic-info-item-title">个人信息</span>
-                <span style="font-weight:300">孙果 / 男 / 20岁</span>
-              </p>
-              <p>
-                <span class="basic-info-item-title">教育经历</span>
-                <span style="font-weight:300">华南理工大学 2021届本科</span>
-              </p>
-              <p>
-                <span class="basic-info-item-title">英语水平</span>
-                <span style="font-weight:300">CET-6</span>
-              </p>
-              <p>
-                <span class="basic-info-item-title">博客地址</span>
+              <template v-if="block.time" v-slot:time>{{block.time}}</template>
+              <template v-slot:title>{{block.title}}</template>
+              <template v-slot:content>
+                <p style="font-weight:300;margin-top:6px;white-space:pre-line">{{block.content}}</p>
+                <div v-if="block.html" v-html="block.html"></div>
+                <div v-if="block.images" style="overflow:auto">
+                  <img
+                    v-for="img in block.images"
+                    :key="img.url"
+                    :src="img.url"
+                    :width="img.w"
+                    :height="img.h"
+                    style="border-radius:5px;margin:5px;margin-left:0;margin-right:10px;border:solid #9f9ff5 1px"
+                  />
+                </div>
+              </template>
+            </TimeLine>
+          </template>
+        </Section>
 
-                <a
-                  href="https://guohere.com"
-                  target="_blank"
-                  style="font-weight:300;text-decoration:none"
-                >guohere.com</a>
-              </p>
-              <p>
-                <span class="basic-info-item-title">Github主页</span>
-                <a
-                  href="https://github.com/GoJam11"
-                  target="_blank"
-                  style="font-weight:300;text-decoration:none"
-                >github.com/GoJam11</a>
-              </p>
-            </template>
-          </mySection>
-          <mySection :theme="currentTheme">
-            <template v-slot:title>实习经历</template>
-            <template v-slot:detail>
-              <TimeLine :theme="currentTheme" class="hover-img">
-                <template v-slot:title>
-                  <p class="project-time">2020.7 -  暑期</p>
-                  <h2 class="project-item-title">腾讯 TEG</h2>
-                </template>
-                <template v-slot:content>
-                  <p style="font-weight:300;margin-top:6px;margin-bottom:-20px">研发管理部。</p>
-                </template>
-              </TimeLine>
-              <TimeLine :theme="currentTheme" class="hover-img">
-                <template v-slot:title>
-                  <p class="project-time">2020.4 - 2020.6 暑期</p>
-                  <h2 class="project-item-title">美团点评 到店</h2>
-                </template>
-                <template v-slot:content>
-                  <p
-                    style="font-weight:300;margin-top:6px"
-                  >参与实现App端团购管理模块前端需求，包括添加功能、界面改版、BUG修复、部分代码重构。我负责的模块由RN编写，与Native结合紧密。这段实习经历不仅让我有机会学习React、RN、Redux，还熟悉了如何与产品、后端协调，以及应该遵循什么样的Git协作规范。</p>
-                </template>
-              </TimeLine>
-            </template>
-          </mySection>
-          <mySection :theme="currentTheme">
-            <template v-slot:title>项目经验</template>
-            <template v-slot:detail>
-              <div style="flex-direction:column">
-                <TimeLine :theme="currentTheme" class="hover-img">
-                  <template v-slot:title>
-                    <p class="project-time">2019.7</p>
-                    <h2 class="project-item-title">论坛后台管理系统</h2>
-                  </template>
-                  <template v-slot:content>
-                    <p style="font-weight:300;margin-top:6px">
-                      配合Node后端提供的API文档，实现后台对论坛、用户、帖子、回复与评论的管理，左边的系统用于结合前端页面模板展示不同信息。两套系统的前端由我独立完成。
-                      <br />在这段项目经历中熟悉了restful
-                      api前后端的开发、设计，ES6语法和实际应用，以及前端路由与状态管理。开发中遇到白屏问题，可能是高版本语法未被转译，配置babel后解决。还遇到了CSS样式不加载的问题，发现是返回的Content-Type不对，重启server后正常。
-                    </p>
-                    <div>
-                      <img
-                        src="../assets/panel1.png"
-                        width="200px"
-                        height="120px"
-                        style="border-radius:5px;margin:5px;margin-left:0;border:solid #9f9ff5 1px"
-                      />
-                      <img
-                        src="../assets/panel3.png"
-                        width="200px"
-                        height="120px"
-                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
-                      />
-                    </div>
-                  </template>
-                </TimeLine>
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <p class="project-time">2018.9</p>
-                    <h2 class="project-item-title">二手市场小程序</h2>
-                  </template>
-                  <template v-slot:content>
-                    <p style="font-weight:300;margin-top:6px">
-                      未上线，功能完善的二手交易平台，我负责使用组件化的方式开发小程序前端，与Spring后端进行交互。
-                      <br />微信小程序开发主要参考官方文档，从这个项目中了解了小程序开发与web网页的区别，比如原生组件和web组件组合，以及不标准的API和不支持DOM操作。
-                    </p>
-                    <div>
-                      <img
-                        src="../assets/market1.png"
-                        width="115px"
-                        height="200px"
-                        style="border-radius:5px;margin:5px;margin-left:0;border:solid #9f9ff5 1px"
-                      />
-                      <img
-                        src="../assets/market2.png"
-                        width="115px"
-                        height="200px"
-                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
-                      />
-                      <img
-                        src="../assets/market3.png"
-                        width="115px"
-                        height="200px"
-                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
-                      />
-                    </div>
-                  </template>
-                </TimeLine>
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2 class="project-item-title">
-                      简历
-                      <!--<a href="https://github.com/GoJam11/Resume/">
-                        <i class="fa fa-github" style="margin-left:.5em"></i>
-                      </a>-->
-                    </h2>
-                  </template>
-                  <template v-slot:content>
-                    <p style="font-weight:300;margin-top:6px">
-                      参考前端大牛的简历，简洁优雅。简历是一个由vue-cli创建的项目，使用Stylus预处理器编辑样式，包括时间轴等多个组件，支持切换主题和语言。兼容iPad与桌面端的Chrome、Safari等现代浏览器。
-                      <!--<a style="display:inline;text-decoration:none;color:#676767" href="https://resume.local.guohere.com">(https://resume.local.guohere.com)</a>-->
-                    </p>
-                  </template>
-                </TimeLine>
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2 class="project-item-title">更多</h2>
-                  </template>
-                  <template v-slot:content>
-                    <p style="display:flex!important;margin-top:6px;font-weight:300;">
-                      <a
-                        class="a-hl"
-                        style="margin-right:12px"
-                        href="https://demo.guohere.com/backgammon/"
-                        target="_blank"
-                      >·五子棋AI：对棋局估分</a>
-
-                      <a
-                        class="a-hl"
-                        style="margin-right:12px"
-                        href="https://fe.guohere.com/"
-                        target="_blank"
-                      >·前端笔记：学习后整理的文档</a>
-                      <a
-                        class="a-hl"
-                        style="margin-right:12px"
-                        href="https://demo.guohere.com/chat/"
-                        target="_blank"
-                      >·聊天（调用API实现）</a>
-                      <a
-                        class="a-hl"
-                        style="margin-right:12px"
-                        href="http://demo.guohere.com/blocks/"
-                        target="_blank"
-                      >·拼图</a>
-                      <a
-                        class="a-hl"
-                        style="margin-right:12px"
-                        href="https://note.guohere.com/"
-                        target="_blank"
-                      >·留言板（支持QQ登陆）</a>
-                    </p>
-                    <div>
-                      <img
-                        src="../assets/five.png"
-                        height="120px"
-                        style="border-radius:5px;margin:5px;margin-left:0;border:solid #9f9ff5 1px"
-                      />
-                      <img
-                        src="../assets/md.png"
-                        height="120px"
-                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
-                      />
-                      <img
-                        src="../assets/chat.png"
-                        height="120px"
-                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
-                      />
-                      <img
-                        src="../assets/blocks.png"
-                        height="120px"
-                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
-                      />
-                      <img
-                        src="../assets/note.png"
-                        height="120px"
-                        style="border-radius:5px;margin:5px;border:solid #9f9ff5 1px"
-                      />
-                    </div>
-                  </template>
-                </TimeLine>
-              </div>
-            </template>
-          </mySection>
-          <mySection :theme="currentTheme">
-            <template v-slot:title>技能</template>
-            <template v-slot:detail>
-              <div class="detail" style="flex-direction:column">
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2 class="project-item-title" style="margin-top:15px">HTML/CSS</h2>
-                  </template>
-                  <template v-slot:content>
-                    <p
-                      style="font-weight:200;margin-bottom:-30px;margin-top:6px"
-                    >熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。常用Flex布局，CSS动画，拥有准确复现设计稿的能力。</p>
-                  </template>
-                </TimeLine>
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2 class="project-item-title" style="margin-top:15px">JavaScript/ESNext</h2>
-                  </template>
-                  <template v-slot:content>
-                    <p
-                      style="font-weight:200;margin-bottom:-30px;margin-top:6px"
-                    >熟悉原生JS中数组、字符串、对象常用方法，知晓常见设计模式，理解JS的异步机制、原型机制与this指向。</p>
-                  </template>
-                </TimeLine>
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2 class="project-item-title" style="margin-top:15px">Vue.JS、React等框架</h2>
-                  </template>
-                  <template v-slot:content>
-                    <p style="font-weight:200;margin-bottom:-30px;margin-top:6px">
-                      能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态。了解React组件书写与Context、Hooks等API，使用过Redux与HOC。也使用Lodash、JQuery、CSS
-                      in JS相关库。
-                    </p>
-                  </template>
-                </TimeLine>
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2 class="project-item-title" style="margin-top:15px">Webpack、Git、NPM等工具</h2>
-                  </template>
-                  <template v-slot:content>
-                    <p
-                      style="font-weight:300;margin-bottom:-30px;margin-top:6px"
-                    >熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码。</p>
-                  </template>
-                </TimeLine>
-                <TimeLine :theme="currentTheme">
-                  <template v-slot:title>
-                    <h2 class="project-item-title" style="margin-top:15px">其他</h2>
-                  </template>
-                  <template v-slot:content>
-                    <p
-                      style="font-weight:300;margin-bottom:10px;margin-top:6px"
-                    >有能力搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置（LAMP和LNMP）与Docker等，会使用Vim等命令行工具。会简单使用C++、Python，用Python爬取过数据。</p>
-                  </template>
-                </TimeLine>
-              </div>
-            </template>
-          </mySection>
-
-          <div style="margin:15px;justify-content:center;align-items:center">
-            <span style="font-weight:500;font-size:22px;">
-              made with
-              <span style="color:#40b883;margin-left:6px;margin-right:6px">vue.js</span>
-            </span>
-          </div>
+        <div style="margin:15px;justify-content:center;align-items:center;margin-bottom:30px">
+          <span style="font-weight:500;font-size:22px;">
+            made with
+            <span style="color:#40b883;margin-left:6px;margin-right:6px">vue.js</span>
+          </span>
         </div>
       </div>
     </div>
-    <!--<div
-      ref="switch"
-      v-on:mousemove="move"
-      v-on:mouseleave="leave"
-      class="switch"
-    >
-      <span style="pointer-events:none">中文</span>
-      <span style="color:white;pointer-events:none">EN</span>
-    </div>-->
-    <div :style="cswitch" class="color-switch" v-on:click="changeTheme"></div>
+
+    <div :style="{ backgroundColor: currentColor }" class="color-switch" v-on:click="changeTheme"></div>
   </div>
 </template>
 
 <script>
-import { setTimeout } from "timers";
-import mySection from "./Section";
+import Section from "./Section";
 import TimeLine from "./TimeLine";
+import Header from "./ResumeBlock/Header";
 export default {
   components: {
-    mySection,
-    TimeLine
+    Section,
+    TimeLine,
+    Header
   },
   data: () => {
     return {
-      loading: true,
-      cswitch: {
-        background: "#2faffe"
-      },
       currentTheme: "light",
-      style: {
-        header: {
-          background: ""
-        }
+      currentColor: "#6195FF",
+      resume: {
+        basicInfo: {
+          name: "孙果",
+          job: "Web前端工程师",
+          description:
+            "我是一个由衷热爱前端与交互的前端er，梦想是成为一名前端工程师。目前正在寻找前端工程师岗位的工作机会，希望借此为贵公司献上我的一点绵薄之力。",
+          email: "iloveos@live.com",
+          telephone: "18651403158",
+          wechat: "iloveos",
+          items: [
+            {
+              title: "个人信息",
+              content: "孙果 / 男 / 20岁"
+            },
+            {
+              title: "教育经历",
+              content: "华南理工大学 2021届本科"
+            },
+            {
+              title: "英语水平",
+              content: "CET-6"
+            },
+            {
+              title: "博客地址",
+              content: "guohere.com",
+              link: "https://guohere.com"
+            },
+            {
+              title: "Github主页",
+              content: "github.com/GoJam11",
+              link: "https://github.com/GoJam11"
+            }
+          ]
+        },
+        module: [
+         
+          {
+            moduleName: "项目经验",
+            blocks: [
+              {
+                time:"2020.7 - 暑期实习",
+                title:"腾讯工蜂",
+                content:`腾讯“工蜂”Git系统前端开发。添加feature、参与项目ES6改造，同时接触了Spring MVC。
+                · 以页面和功能组织依赖
+                · 向工程化前端迁移
+                `
+              },
+              {
+                time:"2020.4-2020.6 暑期实习",
+                title:"点评管家APP",
+                content:`美团点评终端部门前端开发。我参与实现App端团购管理模块需求，包括添加功能、界面改版、BUG修复、部分代码重写。
+                · 基于定制的模块化框架布局，响应式适配不同机型
+                · 基于定制的表单框架获取、交换数据
+                · 使用Redux与HOC在组件间传递信息
+                · 灵活使用rebase与cherry-picker协助开发
+                `
+              },
+              {
+                time: "2019.7",
+                title: "论坛后台管理系统",
+                content: `配合Node后端提供的API文档，实现后台对论坛、用户、帖子、回复与评论的管理，左边的系统用于结合前端页面模板展示不同信息。两套系统的前端由我独立完成。
+                  在这段项目经历中熟悉了restfulapi前后端的开发、设计，ES6语法和实际应用，以及前端路由(VueRouter)与状态管理(VueX)。开发中遇到白屏问题，可能是高版本语法未被转译，配置babel后解决。还遇到了CSS样式不加载的问题，发现是返回的Content-Type不对，重启server后正常。
+                  · `,
+                images: [
+                  {
+                    url: require("../assets/panel1.png"),
+                    w: 200,
+                    h: 120
+                  },
+                  {
+                    url: require("../assets/panel3.png"),
+                    w: 200,
+                    h: 120
+                  }
+                ]
+              },
+              {
+                time: "2018.9",
+                title: "二手市场小程序",
+                content:
+                  `未上线，功能完善的二手交易平台，我负责使用组件化的方式开发小程序前端，与Spring后端进行交互。
+                  微信小程序开发主要参考官方文档，从这个项目中了解了小程序开发与web网页的区别，比如原生组件和web组件组合，以及不标准的API和不支持DOM操作。`,
+                images: [
+                  {
+                    url: require("../assets/market1.png"),
+                    w: 115,
+                    h: 200
+                  },
+                  {
+                    url: require("../assets/market2.png"),
+                    w: 115,
+                    h: 200
+                  },
+                  {
+                    url: require("../assets/market3.png"),
+                    w: 115,
+                    h: 200
+                  }
+                ]
+              },
+              {
+                title: "简历",
+                content:
+                  "参考前端大牛的简历，简洁优雅。简历是一个由Vue-cli创建的项目，包括Module、Section等组件，使用Stylus预处理器编辑样式，支持切换主题、以JSON配置全部内容。兼容iPad与桌面端的Chrome、Safari等现代浏览器。\n另有React下编写的fullPage版简历，对onMouseWheel事件防抖，同时适配手势与滚轮。"
+              },
+              {
+                title: "更多",
+                content: "五子棋AI、学习笔记、留言板、拼图、基于Socket.io的资源监控与聊天室等。",
+                images: [
+                  {
+                    url: require("../assets/five.png"),
+                    h: 120
+                  },
+                  {
+                    url: require("../assets/md.png"),
+                    h: 120
+                  },
+                  {
+                    url: require("../assets/note.png"),
+                    h: 120
+                  },
+                  {
+                    url: require("../assets/blocks.png"),
+                    h: 120
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            moduleName: "技能",
+            blocks: [
+              {
+                title: "HTML/CSS",
+                content:
+                  "熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。常用Flex盒布局，CSS动画，能准确复现设计稿。读过《CSS揭秘》等书籍，关注张鑫旭的博客。"
+              },
+              {
+                title: "JavaScript/ESNext",
+                content:
+                  "熟悉原生JS中数组、字符串、对象常用方法，知晓常见设计模式，理解JS的异步机制、原型机制与this指向。正在阅读《JS高级编程指南（第三版）》。"
+              },
+              {
+                title: "Vue.JS、React等框架",
+                content:
+                  "能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态。了解React组件书写与Context、Hooks等API，使用过Redux与HOC。也使用Lodash、JQuery、CSS in JS相关库（如polished）。"
+              },
+              {
+                title: "Webpack、Git、NPM等工具",
+                content:
+                  "熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码。"
+              },
+              {
+                title: "其他",
+                content:
+                  "能够用NodeJS搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置（LAMP和LNMP）与Docker等，会使用Vim等命令行工具。会简单使用C++、Python，用Python爬取过数据。"
+              }
+            ]
+          }
+        ]
       }
     };
   },
   methods: {
     changeTheme() {
-      if (this.currentTheme == "light") {
-        this.currentTheme = "blue";
-        //#267aff
-        this.cswitch.background = "#6195FF";
-        this.style.header.background = "#6195FF";
+      if (this.currentColor == "rgb(64, 184, 131)") {
+        this.currentColor = "#6195FF";
       } else {
-        this.currentTheme = "light";
-        this.cswitch.background = "rgb(64, 184, 131)";
-
-        this.style.header.background = "rgb(64, 184, 131)";
+        this.currentColor = "rgb(64, 184, 131)";
       }
     }
-  },
-  created() {
-    let that = this;
-    setTimeout(() => {
-      that.loading = false;
-    }, 2000);
-  },
-  mounted() {
-    this.changeTheme();
   }
 };
 </script>
 
 <style lang="stylus" scoped>
-primary-color = #007eff; // #1caef7
-header-color = linear-gradient(180deg, #5ad6ff, #009dff); // linear-gradient(180deg, #8edaf3, #26acff); // #1caef7 #267aff
+primary-color = #007eff;
+header-color = linear-gradient(180deg, #5ad6ff, #009dff);
 light-color = #007eff;
-progress-color = #017eff; // #1caef7
+progress-color = #017eff;
 progress-bg = #017eff7d;
 
 .container {
-  // overflow: scroll;
   width: 100%;
-  // height: calc(100% - 44px);
   min-height: 100%;
   justify-content: center;
-  background: rgba(128, 128, 128, 0.1);
-
-
-  .mobile-loading {
-    display: none;
-  }
-
-  @media screen and (max-width: 994px) {
-    .mobile-loading {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background: white;
-      z-index: 2;
-      display: block;
-    }
-  }
+  background: #f2f2f2;
 
   .loading {
     position: fixed;
@@ -445,6 +281,7 @@ progress-bg = #017eff7d;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     z-index: 2;
+    display: none;
 
     .circle {
       animation: loading 0.5s;
@@ -469,8 +306,6 @@ progress-bg = #017eff7d;
     }
   }
 
-
-
   @keyframes lg {
     100% {
       transform: scale(2);
@@ -484,93 +319,26 @@ progress-bg = #017eff7d;
   }
 
   @keyframes loading {
+    0% {
+      display: flex;
+    }
+
     100% {
       opacity: 0;
-      // transform :translate(-100%,0px)
-      display: none;
     }
   }
 }
 
 .card {
-  // height: 900px;
-  width: 60%;
   border-radius: 6px;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.149);
   margin: 30px 0px;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  min-width: 960px;
+  width: 960px;
   height: card-height = max-content;
   background: white;
-
-  .header {
-    height: 263px;
-    width: 100%;
-    background: header-color;
-
-    .left {
-      color: white;
-      font-size: 54px;
-      width: 30%;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      font-weight: 400;
-
-      // flex-wrap: wrap;
-      p {
-        margin: 0;
-      }
-
-      .s {
-        font-size: 28px;
-      }
-    }
-
-    .right {
-      color: white;
-      font-size: 22px;
-      padding: 15px 0px;
-      flex-grow: 1;
-      width: 70%;
-
-      p {
-        margin-bottom: 0;
-        margin-top: 0.8em;
-
-        &:first-child {
-          margin-top: 10px;
-        }
-      }
-
-      .section {
-        font-size: 22px;
-      }
-
-      .right-l {
-        font-size: 16px;
-        flex-basis: 60%;
-        flex-direction: column;
-        justify-content: center;
-        font-weight: 300;
-
-        .intro {
-          text-indent: 2em;
-          padding-left: 1em;
-          padding-right: 3em;
-        }
-      }
-
-      .right-r {
-        font-size: 16px;
-        flex-basis: 40%;
-        flex-direction: column;
-        font-weight: 300;
-      }
-    }
-  }
 
   .body {
     flex-direction: column;
@@ -583,47 +351,39 @@ progress-bg = #017eff7d;
   }
 }
 
-.global {
-  display: flex;
-  justify-content: center;
+@media screen and (max-width: 996px) {
+  .card {
+    width: 100%;
+    border-radius: 0px;
+    margin: 0px;
+  }
+
+  .color-switch {
+    display: none;
+  }
 }
 
 * {
   display: flex;
+  cursor: default;
 }
 
 p, li, span, a {
   font-family: PingFang SC, Avenir, Microsoft YaHei, Helvetica, Arial, sans-serif;
 }
 
-.switch {
-  // position: absolute;
-  position: fixed;
-  top: 50px;
-  right: 20px;
-  width: 100px;
-  height: 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 4px 0 #00000017;
-  justify-content: space-around;
-  font-weight: bold;
-  align-items: center;
-  background: white;
-}
-
 i {
   align-items: center;
 }
-</style>
 
-<style>
-h2,
-p {
+h2, p {
   cursor: default;
 }
+
 b {
   display: inline !important;
 }
+
 *::selection {
   background: rgba(0, 158, 255, 0.32) !important;
 }
@@ -636,15 +396,12 @@ b {
   bottom: 10px;
   left: 10px;
   background: #2faffe;
-}
+  cursor: pointer;
+  transition: 0.3s;
 
-.a-hl:visited {
-  color: #676767;
-  text-decoration: none !important;
-}
-.a-hl {
-  color: #676767;
-  text-decoration: none !important;
+  &:active {
+    opacity: 0.8;
+  }
 }
 
 .basic-info-item-title {
@@ -660,11 +417,7 @@ b {
   margin-top: 0;
   margin-bottom: 6px !important;
 }
-.project-time {
-  color: gray;
-  font-weight: 300;
-  font-size: 13px;
-}
+
 a {
   color: black;
 }

@@ -2,8 +2,8 @@
   <div style="flex-direction: column;
     padding: 0 5px;margin-bottom:0px">
     <div class="section">
-      <p class="title" :style="style">
-        <i class="fa fa-caret-right"></i>
+      <p class="title">
+        <i class="fa fa-caret-right" :style="{ color: theme }"></i>
         <span class="section-title">
           <slot name="title"></slot>
         </span>
@@ -18,23 +18,7 @@
 <script>
 export default {
   props: {
-    theme: String
-  },
-  computed: {
-    style() {
-      switch (this.theme) {
-        case "light":
-          return {
-            color: "rgb(64, 184, 131)"
-          };
-          break;
-        case "blue":
-          return {
-            color: "#6195FF"
-          };
-          break;
-      }
-    }
+    theme: { type: String, default: "#6195FF" }
   }
 };
 </script>
@@ -46,14 +30,16 @@ light-color = #007eff;
 progress-color = #2faffe; // #1caef7
 progress-bg = #8ad8f4;
 
+
+
 .section {
   padding: 0 20px;
+  padding-left: 10px;
   flex-direction: column;
   margin-bottom: 1em;
 
   .title {
     font-size: 22px;
-    color: primary-color;
 
     i {
       align-items: center;
@@ -61,14 +47,13 @@ progress-bg = #8ad8f4;
   }
 
   .detail {
-    flex-wrap: wrap;
     font-size: 15px;
+    flex-direction: column;
+    align-items: flex-start;
 
     &>p {
       padding-left: 30px;
       flex-basis: 100%;
-
-      
     }
   }
 }
@@ -87,5 +72,19 @@ p {
   font-weight: 500;
   margin-left: 10px;
   color: #2f2f2f;
+}
+
+@media screen and (max-width: 996px) {
+  i {
+    display: none;
+  }
+
+  .section {
+    padding-left: 0px;
+      .detail>p{
+    padding-left:20px
+  }
+  }
+
 }
 </style>

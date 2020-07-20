@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <router-view></router-view>
 </template>
 <script>
 export default {
@@ -12,7 +10,7 @@ export default {
 };
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" >
 .header {
   box-shadow: 0px -8px 9px 0 black;
   padding: 0px 10px 0px 10px;
@@ -25,12 +23,11 @@ export default {
     color: black;
     font-weight: normal;
     text-decoration: none;
-    
-  }
-  a:hover {
-    background :#3685ff29
   }
 
+  a:hover {
+    background: #3685ff29;
+  }
 
   a.router-link-exact-active {
     color: #3685ff;
@@ -40,8 +37,17 @@ export default {
   @media screen and (min-width: 750px) {
   }
 }
-*{
+
+* {
   font-family: PingFang SC, Avenir, Microsoft YaHei, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: #f2f2f2;
+}
+
+@media screen and (max-width: 996px) {
+  background-color: white;
 }
 </style>
 
