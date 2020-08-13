@@ -13,7 +13,7 @@
       <div class="body">
         <!--section-->
         <Section :theme="currentColor">
-          <template v-slot:title>基本信息</template>
+          <template v-slot:title>{{resume.basicInfo.title}}</template>
           <template v-slot:detail>
             <p v-for="item in resume.basicInfo.items" :key="item.title">
               <span class="basic-info-item-title">{{item.title}}</span>
@@ -77,14 +77,193 @@ export default {
   components: {
     Section,
     TimeLine,
-    Header
+    Header,
   },
   data: () => {
     return {
       currentTheme: "light",
       currentColor: "#6195FF",
-      resume: {
+      resume: {},
+      resumeEn: {
         basicInfo: {
+          title:'About me',
+          const_contact:'Contact me',
+          const_email:'E-mail: ',
+          const_phone:'Phone: ',
+          const_wechat:'Wechat: ',
+          name: "Guo Sun",
+          job: "Front-end Engineer",
+          description:
+            "My dream is to be a front-end development engineer. I'm looking for a job at the moment and hope to give me an opportunity to work with you.",
+          email: "iloveos@live.com",
+          telephone: "18651403158",
+          wechat: "iloveos",
+          items: [
+            {
+              title: "Name",
+              content: "Guo Sun",
+            },
+            {
+              title: "Education",
+              content:
+                "South China University of Technology (Bachelor of Arts, graduate at July 2021)",
+            },
+            {
+              title: "Language skill",
+              content: "English(normal)",
+            },
+            {
+              title: "Blog",
+              content: "guohere.com",
+              link: "https://guohere.com",
+            },
+            {
+              title: "Github",
+              content: "github.com/GoJam11",
+              link: "https://github.com/GoJam11",
+            },
+          ],
+        },
+        module: [
+          {
+            moduleName: "Projects",
+            blocks: [
+              {
+                time: "2020.7 - Summer internship",
+                title: "Tencent Tgit",
+                content: `Tencent Git front-end engineer. I'm working on adding feature、fixing bugs and migration to ES6.
+                · Organize modules by page and usage
+                · Migrate to ES6
+                `,
+              },
+              {
+                time: "2020.4 - 2020.6 Summer internship",
+                title: "Dianping Merchants (Meituan dianping's App)",
+                content: `Dianping Merchants front-end engineer. I'm working on adding feature, fixing bugs, implementing UI design, refactoring code on group buying management module.
+                · Based on the customized modular framework, responsive layout and adaptation to different models
+                · Data acquisition and exchange based on customized form framework
+                · Using Redux and HOC to share state between components
+                · Flexible use of rebase and cherry picker to assist development
+                `,
+              },
+              {
+                time: "2019.7 Internship",
+                title: "Backstage of Forum System",
+                content: `Standard forum management system‘s administrator interface.
+                  · State management based on VueX
+                  · Routing based on VueRouter
+                  · Page turning, upload, cascade selector and other functions
+                  · Back end built by express and MySQL
+                  · Use promise to request resources and determine whether the page is loaded
+                  · RESTful APIs
+                  · Using Axios interceptor and token for authentication`,
+                images: [
+                  {
+                    url: require("../assets/panel1.png"),
+                    w: 200,
+                    h: 120,
+                  },
+                  {
+                    url: require("../assets/panel3.png"),
+                    w: 200,
+                    h: 120,
+                  },
+                ],
+              },
+              {
+                time: "2018.9 School",
+                title: "Second-hand Market Mini-program",
+                content: `Online second-hand market, you can browse, collect and publish goods, excluding purchase.
+                  · Convert the design draft into a mini-program
+                  · Component-based application
+                  · Using wechat API`,
+                images: [
+                  {
+                    url: require("../assets/market1.png"),
+                    w: 115,
+                    h: 200,
+                  },
+                  {
+                    url: require("../assets/market2.png"),
+                    w: 115,
+                    h: 200,
+                  },
+                  {
+                    url: require("../assets/market3.png"),
+                    w: 115,
+                    h: 200,
+                  },
+                ],
+              },
+              {
+                title: "Resume",
+                content:
+                  "This is a Vue project. The components are reusable, the style is written in stylus, and the data is from JSON. It's a responsive web page.",
+              },
+              {
+                title: "Others",
+                content:
+                  "Gomoku AI、message board、3x3 jigsaw、Resource monitoring and chat room based on Socket.io",
+                images: [
+                  {
+                    url: require("../assets/five.png"),
+                    h: 120,
+                  },
+                  {
+                    url: require("../assets/md.png"),
+                    h: 120,
+                  },
+                  {
+                    url: require("../assets/note.png"),
+                    h: 120,
+                  },
+                  {
+                    url: require("../assets/blocks.png"),
+                    h: 120,
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            moduleName: "Skills",
+            blocks: [
+              {
+                title: "HTML/CSS",
+                content:
+                  "Can layout for a variety of complex web pages.",
+              },
+              {
+                title: "JavaScript/ESNext",
+                content:
+                  "Familiar with JS common methods, asynchronous, prototype chain, design pattern.",
+              },
+              {
+                title: "Vue.JS and React",
+                content:
+                  "Use frameworks and libraries to writing applications.",
+              },
+              {
+                title: "Webpack、Git、NPM and other tools",
+                content:
+                  "Work actively with the team.",
+              },
+              {
+                title: "Others",
+                content:
+                  "Linux, C++, Python, etc.",
+              },
+            ],
+          },
+        ],
+      },
+      resumeCh: {
+        basicInfo: {
+          title:'基本信息',
+          const_contact:'联系方式',
+          const_email:'邮箱：',
+          const_phone:'电话：',
+          const_wechat:'微信：',
           name: "孙果",
           job: "Web前端工程师",
           description:
@@ -95,122 +274,128 @@ export default {
           items: [
             {
               title: "个人信息",
-              content: "孙果 / 男 / 20岁"
+              content: "孙果 / 男 / 20岁",
             },
             {
               title: "教育经历",
-              content: "华南理工大学 2021届本科"
+              content: "华南理工大学 2021届本科",
             },
             {
               title: "英语水平",
-              content: "CET-6"
+              content: "CET-6",
             },
             {
               title: "博客地址",
               content: "guohere.com",
-              link: "https://guohere.com"
+              link: "https://guohere.com",
             },
             {
               title: "Github主页",
               content: "github.com/GoJam11",
-              link: "https://github.com/GoJam11"
-            }
-          ]
+              link: "https://github.com/GoJam11",
+            },
+          ],
         },
         module: [
-         
           {
-            moduleName: "项目经验",
+            moduleName: "项目经历",
             blocks: [
               {
-                time:"2020.7 - 暑期实习",
-                title:"腾讯工蜂",
-                content:`腾讯“工蜂”Git系统前端开发。添加feature、参与项目ES6改造，同时接触了Spring MVC。
+                time: "2020.7 - 暑期实习 TEG，研发管理部",
+                title: "腾讯工蜂",
+                content: `腾讯“工蜂”Git系统前端开发。添加feature、参与项目ES6改造，同时接触了Spring MVC。
                 · 以页面和功能组织依赖
                 · 向工程化前端迁移
-                `
+                `,
               },
               {
-                time:"2020.4-2020.6 暑期实习",
-                title:"点评管家APP",
-                content:`美团点评终端部门前端开发。我参与实现App端团购管理模块需求，包括添加功能、界面改版、BUG修复、部分代码重写。
+                time: "2020.4 - 2020.6 暑期实习 到店事业群，终端部门",
+                title: "点评管家APP",
+                content: `美团点评“点评管家”APP RN前端开发。我参与实现App端团购管理模块需求，包括添加功能、界面改版、BUG修复、部分代码重写。
                 · 基于定制的模块化框架布局，响应式适配不同机型
                 · 基于定制的表单框架获取、交换数据
                 · 使用Redux与HOC在组件间传递信息
                 · 灵活使用rebase与cherry-picker协助开发
-                `
+                `,
               },
               {
-                time: "2019.7",
+                time: "2019.7 实习",
                 title: "论坛后台管理系统",
-                content: `配合Node后端提供的API文档，实现后台对论坛、用户、帖子、回复与评论的管理，左边的系统用于结合前端页面模板展示不同信息。两套系统的前端由我独立完成。
-                  在这段项目经历中熟悉了restfulapi前后端的开发、设计，ES6语法和实际应用，以及前端路由(VueRouter)与状态管理(VueX)。开发中遇到白屏问题，可能是高版本语法未被转译，配置babel后解决。还遇到了CSS样式不加载的问题，发现是返回的Content-Type不对，重启server后正常。
-                  · `,
+                content: `某公司论坛后台前端开发。配合Node后端提供的API文档，独立实现后台对论坛、用户、帖子、回复与评论的管理，左边的系统用于配置前端活动页面。
+                  · 基于VueX的全局状态管理
+                  · 基于VueRouter的路由支持
+                  · 实现翻页、上传、联动选择等功能
+                  · 基于Express与MySQL的后端
+                  · 利用Promise包装资源请求评估页面加载状态
+                  · 纯RESTful风格的API
+                  · 利用axios拦截器与token认证`,
                 images: [
                   {
                     url: require("../assets/panel1.png"),
                     w: 200,
-                    h: 120
+                    h: 120,
                   },
                   {
                     url: require("../assets/panel3.png"),
                     w: 200,
-                    h: 120
-                  }
-                ]
+                    h: 120,
+                  },
+                ],
               },
               {
-                time: "2018.9",
+                time: "2018.9 组织",
                 title: "二手市场小程序",
-                content:
-                  `未上线，功能完善的二手交易平台，我负责使用组件化的方式开发小程序前端，与Spring后端进行交互。
-                  微信小程序开发主要参考官方文档，从这个项目中了解了小程序开发与web网页的区别，比如原生组件和web组件组合，以及不标准的API和不支持DOM操作。`,
+                content: `学生会二手市场小程序前端开发。未上线，功能完善的二手交易平台，包括浏览、收藏、发布商品，维护商品与个人信息。
+                  · 准确复现设计稿
+                  · 组件化开发
+                  · 了解并应用wxAPI`,
                 images: [
                   {
                     url: require("../assets/market1.png"),
                     w: 115,
-                    h: 200
+                    h: 200,
                   },
                   {
                     url: require("../assets/market2.png"),
                     w: 115,
-                    h: 200
+                    h: 200,
                   },
                   {
                     url: require("../assets/market3.png"),
                     w: 115,
-                    h: 200
-                  }
-                ]
+                    h: 200,
+                  },
+                ],
               },
               {
                 title: "简历",
                 content:
-                  "参考前端大牛的简历，简洁优雅。简历是一个由Vue-cli创建的项目，包括Module、Section等组件，使用Stylus预处理器编辑样式，支持切换主题、以JSON配置全部内容。兼容iPad与桌面端的Chrome、Safari等现代浏览器。\n另有React下编写的fullPage版简历，对onMouseWheel事件防抖，同时适配手势与滚轮。"
+                  "参考前端大牛的简历，简洁优雅。简历是一个由Vue-cli创建的项目，包括Module、Section等组件，使用Stylus预处理器编辑样式，支持切换主题、以JSON配置全部内容。兼容iPad与桌面端的Chrome、Safari等现代浏览器。\n另有React下编写的fullPage版简历，对onMouseWheel事件防抖，同时适配手势与滚轮。",
               },
               {
                 title: "更多",
-                content: "五子棋AI、学习笔记、留言板、拼图、基于Socket.io的资源监控与聊天室等。",
+                content:
+                  "五子棋AI、学习笔记、留言板、拼图、基于Socket.io的资源监控与聊天室等。",
                 images: [
                   {
                     url: require("../assets/five.png"),
-                    h: 120
+                    h: 120,
                   },
                   {
                     url: require("../assets/md.png"),
-                    h: 120
+                    h: 120,
                   },
                   {
                     url: require("../assets/note.png"),
-                    h: 120
+                    h: 120,
                   },
                   {
                     url: require("../assets/blocks.png"),
-                    h: 120
-                  }
-                ]
-              }
-            ]
+                    h: 120,
+                  },
+                ],
+              },
+            ],
           },
           {
             moduleName: "技能",
@@ -218,43 +403,69 @@ export default {
               {
                 title: "HTML/CSS",
                 content:
-                  "熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。常用Flex盒布局，CSS动画，能准确复现设计稿。读过《CSS揭秘》等书籍，关注张鑫旭的博客。"
+                  "熟悉CSS，能够完成兼容不同设备和复杂的布局，使用Stylus等预处理工具。常用Flex盒布局，CSS动画，能准确复现设计稿。读过《CSS揭秘》等书籍，关注张鑫旭的博客。",
               },
               {
                 title: "JavaScript/ESNext",
                 content:
-                  "熟悉原生JS中数组、字符串、对象常用方法，知晓常见设计模式，理解JS的异步机制、原型机制与this指向。正在阅读《JS高级编程指南（第三版）》。"
+                  "熟悉原生JS中数组、字符串、对象常用方法，知晓常见设计模式，理解JS的异步机制、原型机制与this指向。正在阅读《JS高级编程指南（第三版）》。",
               },
               {
                 title: "Vue.JS、React等框架",
                 content:
-                  "能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态。了解React组件书写与Context、Hooks等API，使用过Redux与HOC。也使用Lodash、JQuery、CSS in JS相关库（如polished）。"
+                  "能使用Vue编写不同需求的代码，熟悉Vue及Vue的生态。了解React组件书写与Context、Hooks等API，使用过Redux与HOC。也使用Lodash、JQuery、CSS in JS相关库（如polished）。",
               },
               {
                 title: "Webpack、Git、NPM等工具",
                 content:
-                  "熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码。"
+                  "熟悉Git，了解Webpack等辅助开发/自动化及打包工具，能配合团队编写清晰的代码。",
               },
               {
                 title: "其他",
                 content:
-                  "能够用NodeJS搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置（LAMP和LNMP）与Docker等，会使用Vim等命令行工具。会简单使用C++、Python，用Python爬取过数据。"
-              }
-            ]
-          }
-        ]
-      }
+                  "能够用NodeJS搭建前后端完整的项目，持有VPS并长期运行网站，有一定Linux使用经验，包括Web服务器配置（LAMP和LNMP）与Docker等，会使用Vim等命令行工具。会简单使用C++、Python，用Python爬取过数据。",
+              },
+            ],
+          },
+        ],
+      },
+      en_color:"rgb(136 175 73)",
+      cn_color:"rgb(99 122 171)"
     };
   },
   methods: {
     changeTheme() {
-      if (this.currentColor == "rgb(64, 184, 131)") {
-        this.currentColor = "#6195FF";
+      if (this.currentColor == this.en_color) {
+        //this.currentColor = "#6195FF";
+        this.currentColor=this.cn_color
+        this.resume = this.resumeCh;
+        localStorage.setItem("lang", "cn");
       } else {
-        this.currentColor = "rgb(64, 184, 131)";
+        this.currentColor = this.en_color;
+        this.resume = this.resumeEn;
+        localStorage.setItem("lang", "en");
       }
+    },
+  },
+  beforeMount() {
+    let lang = localStorage.getItem("lang");
+    if (!lang) this.resume = this.resumeCh;
+    switch (lang) {
+      case "cn":
+        //this.currentColor = "#6195FF";
+        this.currentColor=this.cn_color
+        this.resume = this.resumeCh;
+        break;
+      case "en":
+        this.currentColor = this.en_color;
+        this.resume = this.resumeEn;
+        break;
+      default:
+        //this.currentColor = "#6195FF";
+        this.currentColor=this.cn_color
+        this.resume = this.resumeCh;
     }
-  }
+  },
 };
 </script>
 

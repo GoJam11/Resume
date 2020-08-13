@@ -17,18 +17,18 @@
     </div>
     <div class="right" style="flex-basis:35%">
       <div class="right-r" style="flex-basis:100%">
-        <p class="section" style="font-size:26px;margin-bottom:-3px">{{ $t("contact") }}</p>
+        <p class="section" style="font-size:26px;margin-bottom:-3px">{{ basicInfo.const_contact}}</p>
         <p style="font-size:16px;margin-bottom:-5px">
           <i class="fa fa-envelope fa-fw"></i>
-          邮箱：{{ basicInfo.email }}
+          {{basicInfo.const_email}}{{ basicInfo.email }}
         </p>
         <p style="font-size:16px;margin-bottom:-5px">
           <i class="fa fa-phone fa-fw"></i>
-          电话：{{ basicInfo.telephone}}
+          {{basicInfo.const_phone}}{{ basicInfo.telephone}}
         </p>
         <p style="font-size:16px;margin-bottom:-5px">
           <i class="fa fa-wechat fa-fw"></i>
-          微信：{{ basicInfo.wechat }}
+          {{basicInfo.const_wechat}}{{ basicInfo.wechat }}
         </p>
       </div>
     </div>
@@ -130,5 +130,8 @@ export default {
       }
     }
   }
+}
+p,span{
+  user-select none
 }
 </style>
