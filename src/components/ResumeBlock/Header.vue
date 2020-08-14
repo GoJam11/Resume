@@ -39,8 +39,8 @@
 export default {
   props: {
     backgroundColor: { type: String, default: "#6195FF" },
-    basicInfo: Object
-  }
+    basicInfo: Object,
+  },
 };
 </script>
 
@@ -126,12 +126,28 @@ export default {
 
       .section {
         margin-top: 10px;
-        display none
+        display: none;
       }
     }
   }
 }
-p,span{
-  user-select none
+
+@media screen and (max-width: 500px) {
+  .header {
+    .left {
+      &>div {
+        display: flex;
+        flex-direction: column;
+
+        span {
+          margin-left: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+p, span {
+  user-select: none;
 }
 </style>

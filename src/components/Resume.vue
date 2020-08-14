@@ -304,8 +304,9 @@ export default {
                 time: "2020.7 - 暑期实习 TEG，研发管理部",
                 title: "腾讯工蜂",
                 content: `腾讯“工蜂”Git系统前端开发。添加feature、参与项目ES6改造，同时接触了Spring MVC。
-                · 以页面和功能组织依赖
-                · 向工程化前端迁移
+                · 向工程化前端迁移：以页面和功能组织依赖，从requireJS转到静态import
+                · 语法改造：使用箭头函数简化this获取，class语法取代原型，Promise取代回调，可选链取代判空
+                · 从svg显示异常中发现chromium的bug，使用内联svg规避
                 `,
               },
               {
