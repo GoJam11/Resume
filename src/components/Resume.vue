@@ -56,7 +56,7 @@
           </template>
         </Section>
 
-        <div style="margin:15px;justify-content:center;align-items:center;margin-bottom:30px">
+        <div class="madewithvue" style="margin:15px;justify-content:center;align-items:center;margin-bottom:30px">
           <span style="font-weight:500;font-size:22px;">
             made with
             <span style="color:#40b883;margin-left:6px;margin-right:6px">vue.js</span>
@@ -560,6 +560,26 @@ progress-bg = #017eff7d;
       margin-top: 0.8em;
       margin-bottom: 0;
     }
+  }
+}
+
+@media print {
+  body, .container{
+    background:white!important;
+    background-color:white!important;
+  }
+  .card {
+    width: 100%;
+    border-radius: 0px;
+    margin: 0px;
+    box-shadow:0 0 0 0;
+  }
+
+  .color-switch {
+    display: none;
+  }
+  .madewithvue{
+    display:none;
   }
 }
 

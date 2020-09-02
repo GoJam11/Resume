@@ -74,6 +74,19 @@ p {
   color: #2f2f2f;
 }
 
+@media print{
+    i {
+    display: none;
+  }
+
+  .section {
+    padding-left: 0px;
+      .detail>p{
+    padding-left:20px
+  }
+  }
+}
+
 @media screen and (max-width: 996px) {
   i {
     display: none;
