@@ -14,7 +14,7 @@
         "vue": "^2.6.10",
         "vue-i18n": "^8.15.4",
         "vue-router": "^3.1.6",
-        "yarn": "^1.15.2"
+        "yarn": "^1.22.0"
     },
     "devDependencies": {
         "@babel/preset-env": "^7.4.5",
